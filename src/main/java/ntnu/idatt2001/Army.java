@@ -107,7 +107,7 @@ public class Army {
         for(Unit unit : units){
             resultat += unit.toString();
         }
-        return "Army: " + name + "\n" + resultat;
+        return "\nArmy: " + '"' + name + '"' + "\n" + resultat;
     }
 
     /**
