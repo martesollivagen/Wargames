@@ -7,6 +7,7 @@ package ntnu.idatt2001;
  */
 public class RangedUnit extends Unit{
     private int hasBeenAttacked = 0;
+
     /**
      * simplified constructor with attack = 15 and armor = 8
      * @param name name of unit

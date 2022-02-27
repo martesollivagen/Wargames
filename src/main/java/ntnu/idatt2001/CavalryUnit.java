@@ -6,6 +6,7 @@ package ntnu.idatt2001;
  * @author martvaag
  */
 public class CavalryUnit extends Unit{
+    private int hasAttacked = 0;
 
     /**
      * constructor for a unit with relevant parameters
@@ -34,8 +35,10 @@ public class CavalryUnit extends Unit{
      */
     @Override
     public int getAttackbonus() {
-        //missing code
-        return 0;
+        if (hasAttacked == 0){
+            hasAttacked++;
+            return 6;
+        } else return 2;
     }
 
     /**
