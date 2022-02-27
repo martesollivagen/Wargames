@@ -6,6 +6,7 @@ package ntnu.idatt2001;
  * @author martvaag
  */
 public class RangedUnit extends Unit{
+    private int hasBeenAttacked = 0;
     /**
      * simplified constructor with attack = 15 and armor = 8
      * @param name name of unit
@@ -33,7 +34,12 @@ public class RangedUnit extends Unit{
      */
     @Override
     public int getResistBonus() {
-        //missing code
-        return 0;
+        if (hasBeenAttacked == 0){
+            hasBeenAttacked++;
+            return 6;
+        } else if (hasBeenAttacked == 1){
+            hasBeenAttacked++;
+            return 4;
+        } else return 2;
     }
 }
