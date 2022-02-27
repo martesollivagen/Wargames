@@ -22,7 +22,7 @@ public class RangedUnit extends Unit{
      * @return bonus = 3
      */
     @Override
-    public int getAttackbonus() {
+    public int getAttackBonus() {
         return 3;
     }
 

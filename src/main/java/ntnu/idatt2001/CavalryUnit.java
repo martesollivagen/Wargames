@@ -34,7 +34,7 @@ public class CavalryUnit extends Unit{
      * @return 4+2 for the first attack, then 2 for the rest
      */
     @Override
-    public int getAttackbonus() {
+    public int getAttackBonus() {
         if (hasAttacked == 0){
             hasAttacked++;
             return 6;
