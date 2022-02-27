@@ -76,7 +76,7 @@ public class Army {
      * checks if list of units contains elements
      * @return true if list contains elements, false if list is empty
      */
-    public boolean hadUnits(){
+    public boolean hasUnits(){
         boolean has = false;
         if(!units.isEmpty()){
             has = true;
