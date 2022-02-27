@@ -111,18 +111,17 @@ public class Army {
     }
 
     /**
-     * equals-methode so that there are not two identical units
-     * uses the name of the unit to check if two are identical
+     * equals-method so that there are not two identical armies
+     * uses the name of the army to check if two are identical
      * @param o object
      * @return "true" if two objects are equal, "false" if the object does not already exist
      */
-    //fix this methode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Unit unit = (Unit) o;
-        return this.getName().equals(unit.getName());
+        Army army = (Army) o;
+        return this.getName().equals(army.getName());
     }
 
     //add hashcode
