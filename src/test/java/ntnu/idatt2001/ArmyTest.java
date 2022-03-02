@@ -62,8 +62,8 @@ class ArmyTest {
         units.add(unit1);
         units.add(unit2);
         units.add(unit3);
-        army.getRandom();
-        //add
+        Unit randomUnit = army.getRandom();
+        assertTrue(army.getUnits().contains(randomUnit));
     }
 
     @Test
