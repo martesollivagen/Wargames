@@ -36,6 +36,10 @@ public class Battle {
         return null;
     }
 
+    /**
+     * get a reasonable textual representation of a battle
+     * @return textual representation of a battle
+     */
     public String toString(){
         return "The winning army of this battle is: " + simulate();
     }
