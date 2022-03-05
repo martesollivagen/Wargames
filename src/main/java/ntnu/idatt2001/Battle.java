@@ -2,7 +2,7 @@ package ntnu.idatt2001;
 
 /**
  * class which represent a battle between two armies
- * @version 1.0 2022-02-24
+ * @version 1.0 2022-03-05
  * @author martvaag
  */
 public class Battle {

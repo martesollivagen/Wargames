@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * class which represent an army consisting of multiple units
- * @version 1.0 2022-02-24
+ * @version 1.0 2022-03-05
  * @author martvaag
  */
 public class Army {
@@ -74,7 +74,7 @@ public class Army {
 
     /**
      * checks if list of units contains elements
-     * @return true if list contains elements, false if list is empty
+     * @return {@code true} if list contains elements, {@code false} if list is empty
      */
     public boolean hasUnits(){
         boolean has = false;
@@ -114,7 +114,7 @@ public class Army {
      * equals-method so that there are not two identical armies
      * uses the name of the army to check if two are identical
      * @param o object
-     * @return "true" if two objects are equal, "false" if the object does not already exist
+     * @return {@code true} if two objects are equal, {@code false} if the object does not already exist
      */
     @Override
     public boolean equals(Object o) {

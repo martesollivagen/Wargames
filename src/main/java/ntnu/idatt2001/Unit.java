@@ -2,7 +2,7 @@ package ntnu.idatt2001;
 
 /**
  * abstract class which represent a unit
- * @version 1.0 2022-02-24
+ * @version 1.0 2022-03-05
  * @author martvaag
  */
 public abstract class Unit {
@@ -26,7 +26,7 @@ public abstract class Unit {
 
     /**
      * attack which hurts the opponent
-     * the reslut of the methode will be the opponent´s health after the attack
+     * the result of the method will be the opponent´s health after the attack
      * @param opponent a unit "opponent"
      */
     public void attack(Unit opponent){
