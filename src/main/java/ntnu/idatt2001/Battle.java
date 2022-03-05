@@ -1,7 +1,5 @@
 package ntnu.idatt2001;
 
-import java.util.Random;
-
 /**
  * class which represent a battle between two armies
  * @version 1.0 2022-02-24
@@ -28,12 +26,30 @@ public class Battle {
      * @return the winning army
      */
     public Army simulate(){
-        Random random = new Random();
-        int index1 = random.nextInt(armyOne.getUnits().size());
-        int index2 = random.nextInt(armyTwo.getUnits().size());
-        //missing code
-
-        return null;
+        Army winner;
+        int attack = 1;
+        while (armyOne.hasUnits() && armyTwo.hasUnits()){
+            Unit one = armyOne.getRandom();
+            Unit two = armyTwo.getRandom();
+            if (attack % 2 == 0){
+                armyOne.getRandom().attack(two);
+                if (two.isDead()){
+                    armyTwo.remove(two);
+                }
+            } else {
+                armyTwo.getRandom().attack(one);
+                if (one.isDead()){
+                    armyOne.remove(one);
+                }
+            }
+            attack++;
+        }
+        if (!armyOne.hasUnits()){
+            winner = armyTwo;
+        } else {
+            winner = armyOne;
+        }
+        return winner;
     }
 
     /**
