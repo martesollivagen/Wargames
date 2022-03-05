@@ -1,6 +1,7 @@
 package ntnu.idatt2001;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -124,5 +125,12 @@ public class Army {
         return this.getName().equals(army.getName());
     }
 
-    //add hashcode
+    /**
+     * assigns a unique value based on the name of the army
+     * @return the hashcode-value of the army
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
