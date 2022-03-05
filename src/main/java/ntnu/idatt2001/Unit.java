@@ -74,6 +74,18 @@ public abstract class Unit {
     }
 
     /**
+     * checks if a unit´s health is above 0
+     * @return {@code true} if the unit´s health equals to or is below 0, {@code false} if not
+     */
+    public boolean isDead(){
+        boolean isDead = false;
+        if (getHealth() <= 0){
+            isDead = true;
+        }
+        return isDead;
+    }
+
+    /**
      * gives bonus when a unit attacks, which gets added to the attack-value
      * @return attackbonus
      */
