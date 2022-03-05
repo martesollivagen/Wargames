@@ -6,10 +6,18 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * class containing test for Battle class
+ * @version 1.0 2022-03-05
+ * @author martvaag
+ */
 class BattleTest {
 
+    /**
+     * test to check the simulate-method
+     */
     @Test
-    void simulate() {
+    void simulateBattleBetweenTwoArmies() {
         Unit unit11 = new InfantryUnit("Footman", 100);
         Unit unit21 = new InfantryUnit("Grunt", 100);
         ArrayList<Unit> units1 = new ArrayList<>();
