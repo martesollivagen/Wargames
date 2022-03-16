@@ -1,8 +1,12 @@
 package ntnu.idatt2001;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * class which represent an army consisting of multiple units
@@ -132,5 +136,70 @@ public class Army {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public List<Unit> getInfantryUnits(){
+        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof InfantryUnit;
+        List<Unit> infantryUnits = units.stream()
+                .filter(unitEqualsInfantryUnit)
+                .collect(Collectors.toList());
+
+        return infantryUnits;
+    }
+
+    public List<Unit> getCavalryUnits(){
+        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
+        List<Unit> cavalryUnits = units.stream()
+                .filter(unitEqualsInfantryUnit)
+                .collect(Collectors.toList());
+
+        return cavalryUnits;
+    }
+
+    public List<Unit> getRangedUnits(){
+        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof RangedUnit;
+        List<Unit> rangedUnits = units.stream()
+                .filter(unitEqualsInfantryUnit)
+                .collect(Collectors.toList());
+
+        return rangedUnits;
+    }
+
+    public List<Unit> getCommanderUnits(){
+        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CommanderUnit;
+        List<Unit> commanderUnits = units.stream()
+                .filter(unitEqualsInfantryUnit)
+                .collect(Collectors.toList());
+
+        return commanderUnits;
+    }
+
+    public static void writeToFile(File file, Army army){
+        FileWriter fileWriter = null;
+        try{
+            fileWriter = new FileWriter(file);
+            fileWriter.write(army.toString());
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fileWriter != null){
+                    fileWriter.close();
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void readFromFile(File file){
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = bufferedReader.readLine()) !=null){
+                System.out.println(line);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

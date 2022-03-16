@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 /**
  * class which represent a unit which specialises in melee (nærkamp)
@@ -6,6 +6,19 @@ package ntnu.idatt2001;
  * @author martvaag
  */
 public class InfantryUnit extends Unit{
+
+    /**
+     * constructor for a unit with relevant parameters
+     * @param name a short descriptive name, for example "Footman"
+     * @param health a value which indicates the unit´s health, The value reduces when the unit is attacked,
+     *               and can never be below 0
+     * @param attack an attack-value, which represents the unit´s weapons
+     * @param armor a defence-value, which protects the unit during an attack
+     */
+    public InfantryUnit(String name, int health, int attack, int armor) {
+        super(name, health, attack, armor);
+    }
+
     /**
      * simplified constructor with attack = 15 and armor = 10
      * @param name name of unit

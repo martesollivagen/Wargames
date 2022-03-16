@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 /**
  * class which represent a unit which specialises in melee (nærkamp),
  * and is strong in their first attack (charge)
@@ -10,7 +10,7 @@ public class CavalryUnit extends Unit{
 
     /**
      * constructor for a unit with relevant parameters
-     * @param name a short descriptive name, for example "Swordsman" or "Archer"
+     * @param name a short descriptive name, for example "Swordsman"
      * @param health a value which indicates the unit´s health, The value reduces when the unit is attacked,
      *               and can never be below 0
      * @param attack an attack-value, which represents the unit´s weapons

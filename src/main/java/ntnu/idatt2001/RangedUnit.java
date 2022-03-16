@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)
@@ -7,6 +7,18 @@ package ntnu.idatt2001;
  */
 public class RangedUnit extends Unit{
     private int hasBeenAttacked = 0;
+
+    /**
+     * constructor for a unit with relevant parameters
+     * @param name a short descriptive name, for example "Archer"
+     * @param health a value which indicates the unit´s health, The value reduces when the unit is attacked,
+     *               and can never be below 0
+     * @param attack an attack-value, which represents the unit´s weapons
+     * @param armor a defence-value, which protects the unit during an attack
+     */
+    public RangedUnit(String name, int health, int attack, int armor) {
+        super(name, health, attack, armor);
+    }
 
     /**
      * simplified constructor with attack = 15 and armor = 8

@@ -1,10 +1,8 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing test for Battle class
