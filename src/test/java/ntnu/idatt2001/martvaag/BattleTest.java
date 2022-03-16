@@ -1,5 +1,6 @@
 package ntnu.idatt2001.martvaag;
 
+import ntnu.idatt2001.martvaag.Unit.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

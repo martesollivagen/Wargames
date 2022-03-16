@@ -1,11 +1,13 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.Unit;
+
+import ntnu.idatt2001.martvaag.Unit.CavalryUnit;
 
 /**
  * class which represent a stronger version of a CavalryUnit
  * @version 1.0 2022-03-05
  * @author martvaag
  */
-public class CommanderUnit extends CavalryUnit{
+public class CommanderUnit extends CavalryUnit {
 
     /**
      * constructor for a unit with relevant parameters

@@ -1,11 +1,14 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.Unit;
+
+import ntnu.idatt2001.martvaag.Unit.Unit;
+
 /**
  * class which represent a unit which specialises in melee (nærkamp),
  * and is strong in their first attack (charge)
  * @version 1.0 2022-03-05
  * @author martvaag
  */
-public class CavalryUnit extends Unit{
+public class CavalryUnit extends Unit {
     private int hasAttacked = 0;
 
     /**

@@ -1,5 +1,8 @@
 package ntnu.idatt2001.martvaag;
 
+import ntnu.idatt2001.martvaag.Unit.CavalryUnit;
+import ntnu.idatt2001.martvaag.Unit.InfantryUnit;
+import ntnu.idatt2001.martvaag.Unit.Unit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

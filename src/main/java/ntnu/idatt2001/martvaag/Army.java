@@ -1,5 +1,7 @@
 package ntnu.idatt2001.martvaag;
 
+import ntnu.idatt2001.martvaag.Unit.*;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

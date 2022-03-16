@@ -1,11 +1,13 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.Unit;
+
+import ntnu.idatt2001.martvaag.Unit.Unit;
 
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)
  * @version 1.0 2022-03-05
  * @author martvaag
  */
-public class RangedUnit extends Unit{
+public class RangedUnit extends Unit {
     private int hasBeenAttacked = 0;
 
     /**

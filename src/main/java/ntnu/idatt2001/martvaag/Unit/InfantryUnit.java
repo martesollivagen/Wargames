@@ -1,11 +1,13 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.Unit;
+
+import ntnu.idatt2001.martvaag.Unit.Unit;
 
 /**
  * class which represent a unit which specialises in melee (nærkamp)
  * @version 1.0 2022-03-05
  * @author martvaag
  */
-public class InfantryUnit extends Unit{
+public class InfantryUnit extends Unit {
 
     /**
      * constructor for a unit with relevant parameters
