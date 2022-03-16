@@ -1,4 +1,4 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001;
 
 import org.junit.jupiter.api.Test;
 
