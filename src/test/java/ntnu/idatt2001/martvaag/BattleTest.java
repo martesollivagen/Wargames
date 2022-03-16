@@ -2,6 +2,7 @@ package ntnu.idatt2001.martvaag;
 
 import ntnu.idatt2001.martvaag.Unit.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
@@ -52,11 +53,11 @@ class BattleTest {
 
         Battle battle = new Battle(armyOne, armyTwo);
         if (battle.simulate().equals(armyOne)){
-            assert(armyOne.hasUnits());
-            assert(!armyTwo.hasUnits());
+            assertTrue(armyOne.hasUnits());
+            assertTrue(!armyTwo.hasUnits());
         } else {
-            assert(armyTwo.hasUnits());
-            assert(!armyOne.hasUnits());
+            assertTrue(armyTwo.hasUnits());
+            assertTrue(!armyOne.hasUnits());
         }
     }
 }
