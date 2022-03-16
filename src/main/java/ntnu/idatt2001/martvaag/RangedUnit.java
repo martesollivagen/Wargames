@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)

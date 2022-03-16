@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 /**
  * class which represent a battle between two armies

@@ -1,4 +1,4 @@
-package ntnu.idatt2001;
+package ntnu.idatt2001.martvaag;
 
 import java.io.*;
 import java.util.ArrayList;
