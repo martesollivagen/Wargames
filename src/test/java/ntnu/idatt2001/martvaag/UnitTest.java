@@ -23,7 +23,16 @@ class UnitTest {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2);
-        assertTrue(unit2.getHealth() == 97);
+        //assertTrue(unit2.getHealth() == 97);
+        assertEquals(97, unit2.getHealth());
+    }
+
+    @Test
+    void attackFalse(){
+        Unit unit1 = new InfantryUnit("Footman", 100);
+        Unit unit2 = new RangedUnit("Archer", 100);
+        unit1.attack(unit2);
+        assertNotEquals(100, unit2.getHealth());
     }
 
     /**
@@ -33,6 +42,13 @@ class UnitTest {
     void setHealthTo80IsTrue() {
         Unit unit = new InfantryUnit("Footman", 100);
         unit.setHealth(80);
-        assertTrue(unit.getHealth() == 80);
+        assertEquals(80, unit.getHealth());
+    }
+
+    @Test
+    void setHealthTo80IsFalse(){
+        Unit unit = new InfantryUnit("Footman", 100);
+        unit.setHealth(80);
+        assertNotEquals(100, unit.getHealth());
     }
 }
