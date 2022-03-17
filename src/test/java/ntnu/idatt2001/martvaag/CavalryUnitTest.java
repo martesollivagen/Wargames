@@ -20,7 +20,13 @@ class CavalryUnitTest {
     @Test
     void getAttackBonusFirstAttack() {
         Unit unit = new CavalryUnit("Knight", 100);
-        assertTrue(unit.getAttackBonus() == 6);
+        assertEquals(6,unit.getAttackBonus());
+    }
+
+    @Test
+    void getAttackBonusFirstAttackFalse(){
+        Unit unit = new CavalryUnit("Knight", 100);
+        assertNotEquals(2,unit.getAttackBonus());
     }
 
     /**
@@ -31,6 +37,14 @@ class CavalryUnitTest {
         Unit unit1 = new CavalryUnit("Knight", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit1.attack(unit2);
-        assertTrue(unit1.getAttackBonus() == 2);
+        assertEquals(2,unit1.getAttackBonus());
+    }
+
+    @Test
+    void getAttackBonusSecondAttackFalse(){
+        Unit unit1 = new CavalryUnit("Knight", 100);
+        Unit unit2 = new InfantryUnit("Footman", 100);
+        unit1.attack(unit2);
+        assertNotEquals(6,unit1.getAttackBonus());
     }
 }
