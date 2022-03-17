@@ -20,8 +20,13 @@ class RangedUnitTest {
     @Test
     void getResistBonusFirstResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
-        Unit unit2 = new InfantryUnit("Footman", 100);
-        assertTrue(unit1.getResistBonus() == 6);
+        assertEquals(6,unit1.getResistBonus());
+    }
+
+    @Test
+    void getResistBonusFirstResistFalse(){
+        Unit unit1 = new RangedUnit("Archer", 100);
+        assertNotEquals(4,unit1.getResistBonus());
     }
 
     /**
@@ -32,7 +37,15 @@ class RangedUnitTest {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1);
-        assertTrue(unit1.getResistBonus() == 4);
+        assertEquals(4,unit1.getResistBonus());
+    }
+
+    @Test
+    void getResistBonusSecondResistFalse(){
+        Unit unit1 = new RangedUnit("Archer", 100);
+        Unit unit2 = new InfantryUnit("Footman", 100);
+        unit2.attack(unit1);
+        assertNotEquals(6,unit1.getResistBonus());
     }
 
     /**
@@ -44,6 +57,15 @@ class RangedUnitTest {
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1);
         unit2.attack(unit1);
-        assertTrue(unit1.getResistBonus() == 2);
+        assertEquals(2,unit1.getResistBonus());
+    }
+
+    @Test
+    void getResistBonusThirdResistFalse(){
+        Unit unit1 = new RangedUnit("Archer", 100);
+        Unit unit2 = new InfantryUnit("Footman", 100);
+        unit2.attack(unit1);
+        unit2.attack(unit1);
+        assertNotEquals(4,unit1.getResistBonus());
     }
 }
