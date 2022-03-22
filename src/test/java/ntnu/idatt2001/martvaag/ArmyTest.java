@@ -119,7 +119,7 @@ class ArmyTest {
     void testEqualNames() {
         Army armyOne = new Army("army");
         Army armyTwo = new Army("army");
-        assertTrue(armyOne.equals(armyTwo));
+        assertEquals(armyOne, armyTwo);
     }
 
     /**
@@ -129,14 +129,14 @@ class ArmyTest {
     void testNotEqualNames() {
         Army armyOne = new Army("armyOne");
         Army armyTwo = new Army("armyTwo");
-        assertFalse(armyOne.equals(armyTwo));
+        assertNotEquals(armyOne, armyTwo);
     }
 
     @Test
     void testGetInfantryUnits(){
         Army armyOne = new Army("armyOne", addUnits());
-        Predicate<Unit> isInfanrtyUnit = unit -> unit instanceof InfantryUnit;
-        boolean check = armyOne.getInfantryUnits().stream().allMatch(isInfanrtyUnit);
+        Predicate<Unit> isInfantryUnit = unit -> unit instanceof InfantryUnit;
+        boolean check = armyOne.getInfantryUnits().stream().allMatch(isInfantryUnit);
 
         assertTrue(check);
     }
@@ -170,7 +170,7 @@ class ArmyTest {
 
     @Test
     void testWriteToFile(){
-        Army army = new Army("Martes armé", addUnits());
+        Army army = new Army("Marte army", addUnits());
         Army.writeToFile(new File("src/test/file.txt"), army);
     }
 

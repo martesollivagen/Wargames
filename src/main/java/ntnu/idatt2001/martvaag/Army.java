@@ -66,14 +66,12 @@ public class Army {
      * @param newUnits list of units
      */
     public void addAll(ArrayList<Unit> newUnits){
-        for(Unit u : newUnits){
-            units.add(u);
-        }
+        units.addAll(newUnits);
     }
 
     /**
      * removes a unit from the list of units
-     * @param unit unit wanted removed
+     * @param unit unit to be removed
      */
     public void remove(Unit unit){
         units.remove(unit);
@@ -84,11 +82,7 @@ public class Army {
      * @return {@code true} if list contains elements, {@code false} if list is empty
      */
     public boolean hasUnits(){
-        boolean has = false;
-        if(!units.isEmpty()){
-            has = true;
-        }
-        return has;
+        return !units.isEmpty();
     }
 
     /**
@@ -98,11 +92,8 @@ public class Army {
     public Unit getRandom(){
         Random random = new Random();
         int index = random.nextInt(units.size());
-        for(int i = 0; i<units.size(); i++){
-            Unit unit = units.get(index);
-            return unit;
-        }
-        return null;
+
+        return units.get(index);
     }
 
     /**
@@ -110,11 +101,11 @@ public class Army {
      * @return textual representation of an army
      */
     public String toString(){
-        String resultat = "";
+        StringBuilder result = new StringBuilder();
         for(Unit unit : units){
-            resultat += unit.toString();
+            result.append(unit.toString());
         }
-        return "\nArmy: " + '"' + name + '"' + "\n" + resultat;
+        return "\nArmy: " + '"' + name + '"' + "\n" + result;
     }
 
     /**
@@ -142,45 +133,43 @@ public class Army {
 
     public List<Unit> getInfantryUnits(){
         Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof InfantryUnit;
-        List<Unit> infantryUnits = units.stream()
+        return units.stream()
                 .filter(unitEqualsInfantryUnit)
                 .collect(Collectors.toList());
-
-        return infantryUnits;
     }
 
     public List<Unit> getCavalryUnits(){
         Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
-        List<Unit> cavalryUnits = units.stream()
+        return units.stream()
                 .filter(unitEqualsInfantryUnit)
                 .collect(Collectors.toList());
-
-        return cavalryUnits;
     }
 
     public List<Unit> getRangedUnits(){
         Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof RangedUnit;
-        List<Unit> rangedUnits = units.stream()
+        return units.stream()
                 .filter(unitEqualsInfantryUnit)
                 .collect(Collectors.toList());
-
-        return rangedUnits;
     }
 
     public List<Unit> getCommanderUnits(){
         Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CommanderUnit;
-        List<Unit> commanderUnits = units.stream()
+        return units.stream()
                 .filter(unitEqualsInfantryUnit)
                 .collect(Collectors.toList());
-
-        return commanderUnits;
     }
 
     public static void writeToFile(File file, Army army){
         FileWriter fileWriter = null;
+
+        StringBuilder string = new StringBuilder("" + army.getName());
+        for (Unit unit : army.getUnits()){
+            string.append("\n").append(unit.getClass().getSimpleName()).append(",").append(unit.getName()).append(",").append(unit.getHealth());
+        }
+
         try{
             fileWriter = new FileWriter(file);
-            fileWriter.write(army.toString());
+            fileWriter.write(string.toString());
         } catch (IOException e){
             e.printStackTrace();
         } finally {

@@ -1,174 +1,172 @@
-
-Army: "Martes armé"
-
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Footman', Health: 100, Attack: 15, Armor: 10
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Knight', Health: 100, Attack: 20, Armor: 12
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Archer', Health: 100, Attack: 15, Armor: 8
-'Mountain King', Health: 180, Attack: 25, Armor: 15
+Marte army
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+InfantryUnit,Footman,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+CavalryUnit,Knight,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+RangedUnit,Archer,100
+CommanderUnit,Mountain King,180
