@@ -3,6 +3,7 @@ package ntnu.idatt2001.martvaag;
 import ntnu.idatt2001.martvaag.Unit.CavalryUnit;
 import ntnu.idatt2001.martvaag.Unit.InfantryUnit;
 import ntnu.idatt2001.martvaag.Unit.Unit;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,25 +15,22 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class CavalryUnitTest {
 
-    /**
-     * test to check right AttackBonus-value for first attack
-     */
     @Test
+    @DisplayName("Attack bonus first attack, check correct value equals true")
     void getAttackBonusFirstAttack() {
         Unit unit = new CavalryUnit("Knight", 100);
         assertEquals(6,unit.getAttackBonus());
     }
 
     @Test
+    @DisplayName("Attack bonus first attack, check wrong value equals false")
     void getAttackBonusFirstAttackFalse(){
         Unit unit = new CavalryUnit("Knight", 100);
         assertNotEquals(2,unit.getAttackBonus());
     }
 
-    /**
-     * test to check right AttackBonus-value for second attack
-     */
     @Test
+    @DisplayName("Attack bonus second attack, check correct value equals true")
     void getAttackBonusSecondAttack() {
         Unit unit1 = new CavalryUnit("Knight", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
@@ -41,6 +39,7 @@ class CavalryUnitTest {
     }
 
     @Test
+    @DisplayName("Attack bonus second attack, check wrong value equals false")
     void getAttackBonusSecondAttackFalse(){
         Unit unit1 = new CavalryUnit("Knight", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);

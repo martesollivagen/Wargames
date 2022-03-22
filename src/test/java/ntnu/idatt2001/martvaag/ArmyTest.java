@@ -1,6 +1,7 @@
 package ntnu.idatt2001.martvaag;
 
 import ntnu.idatt2001.martvaag.Unit.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -36,20 +37,16 @@ class ArmyTest {
         return units;
     }
 
-    /**
-     * test to check if a unit can be added to a list
-     */
     @Test
+    @DisplayName("Add a unit to a list")
     void addUnitToList() {
         Unit unit = new CavalryUnit("Knight", 100);
         ArrayList<Unit> units = new ArrayList<>();
         assertTrue(units.add(unit));
     }
 
-    /**
-     * test to check if a list of units can be added to another list
-     */
     @Test
+    @DisplayName("Add a list of units to another list")
     void addListOfUnitsToOtherList() {
         ArrayList<Unit> units = new ArrayList<>();
         Unit unit1 = new InfantryUnit("Footman", 100);
@@ -62,10 +59,8 @@ class ArmyTest {
         assertTrue(units.addAll(addedUnits));
     }
 
-    /**
-     * test to check if a unit can be removed from a list
-     */
     @Test
+    @DisplayName("Remove a unit from a list")
     void removeUnitFromList() {
         Unit unit = new InfantryUnit("Footman", 100);
         ArrayList<Unit> units = new ArrayList<>();
@@ -73,10 +68,8 @@ class ArmyTest {
         assertTrue(units.remove(unit));
     }
 
-    /**
-     * test to check if an army contains units
-     */
     @Test
+    @DisplayName("Army contains units")
     public void ArmyHasUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army army = new Army("army", units);
@@ -85,20 +78,16 @@ class ArmyTest {
         assertTrue(army.hasUnits());
     }
 
-    /**
-     * test to check an army with no units
-     */
     @Test
+    @DisplayName("Army does not have any units")
     public void ArmyHasNoUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army army = new Army("army", units);
         assertFalse(army.hasUnits());
     }
 
-    /**
-     * test to check if getRandom-method returns a random unit from the army
-     */
     @Test
+    @DisplayName("Get random unit from army")
     void getRandomUnitFromArmy() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
@@ -112,20 +101,16 @@ class ArmyTest {
         assertTrue(army.getUnits().contains(randomUnit));
     }
 
-    /**
-     * test to check equals-method by name of army
-     */
     @Test
+    @DisplayName("Army equals another army, check same name equals true")
     void testEqualNames() {
         Army armyOne = new Army("army");
         Army armyTwo = new Army("army");
         assertEquals(armyOne, armyTwo);
     }
 
-    /**
-     * test to check equals-method by name of army
-     */
     @Test
+    @DisplayName("Army equals another army, check different names equals false")
     void testNotEqualNames() {
         Army armyOne = new Army("armyOne");
         Army armyTwo = new Army("armyTwo");
@@ -133,6 +118,7 @@ class ArmyTest {
     }
 
     @Test
+    @DisplayName("List of InfantryUnits")
     void testGetInfantryUnits(){
         Army armyOne = new Army("armyOne", addUnits());
         Predicate<Unit> isInfantryUnit = unit -> unit instanceof InfantryUnit;
@@ -142,6 +128,7 @@ class ArmyTest {
     }
 
     @Test
+    @DisplayName("List of CavalryUnits")
     void testGetCavalryUnits(){
         Army armyOne = new Army("armyOne", addUnits());
         Predicate<Unit> isCavalryUnit = unit -> unit instanceof CavalryUnit;
@@ -151,6 +138,7 @@ class ArmyTest {
     }
 
     @Test
+    @DisplayName("List of RangedUnits")
     void testGetRangedUnits(){
         Army armyOne = new Army("armyOne", addUnits());
         Predicate<Unit> isRangedUnit = unit -> unit instanceof RangedUnit;
@@ -160,6 +148,7 @@ class ArmyTest {
     }
 
     @Test
+    @DisplayName("List of CommanderUnits")
     void testGetCommanderUnits(){
         Army armyOne = new Army("armyOne", addUnits());
         Predicate<Unit> isCommanderUnit = unit -> unit instanceof CommanderUnit;
@@ -169,12 +158,14 @@ class ArmyTest {
     }
 
     @Test
+    @DisplayName("Write an army to a file")
     void testWriteToFile(){
         Army army = new Army("Marte army", addUnits());
         Army.writeToFile(new File("src/test/file.txt"), army);
     }
 
     @Test
+    @DisplayName("Read a file")
     void testReadFile(){
         Army.readFromFile(new File("src/test/file.txt"));
     }

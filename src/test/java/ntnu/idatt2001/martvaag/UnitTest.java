@@ -3,6 +3,7 @@ package ntnu.idatt2001.martvaag;
 import ntnu.idatt2001.martvaag.Unit.InfantryUnit;
 import ntnu.idatt2001.martvaag.Unit.RangedUnit;
 import ntnu.idatt2001.martvaag.Unit.Unit;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,20 +15,17 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class UnitTest {
 
-    /**
-     * test to check attack-method
-     * after this attack, the health of unit2 will be 97
-     */
     @Test
+    @DisplayName("Unit attack another unit, check correct value equals true")
     void attack() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2);
-        //assertTrue(unit2.getHealth() == 97);
         assertEquals(97, unit2.getHealth());
     }
 
     @Test
+    @DisplayName("Unit attack another unit, check wrong value equals false")
     void attackFalse(){
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
@@ -35,10 +33,8 @@ class UnitTest {
         assertNotEquals(100, unit2.getHealth());
     }
 
-    /**
-     * test to check setHealth-method
-     */
     @Test
+    @DisplayName("Set unit health, check correct value equals true")
     void setHealthTo80IsTrue() {
         Unit unit = new InfantryUnit("Footman", 100);
         unit.setHealth(80);
@@ -46,6 +42,7 @@ class UnitTest {
     }
 
     @Test
+    @DisplayName("Set unit health, check wrong value equals false")
     void setHealthTo80IsFalse(){
         Unit unit = new InfantryUnit("Footman", 100);
         unit.setHealth(80);

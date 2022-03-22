@@ -3,6 +3,7 @@ package ntnu.idatt2001.martvaag;
 import ntnu.idatt2001.martvaag.Unit.InfantryUnit;
 import ntnu.idatt2001.martvaag.Unit.RangedUnit;
 import ntnu.idatt2001.martvaag.Unit.Unit;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,25 +15,22 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class RangedUnitTest {
 
-    /**
-     * test to check right ResistBonus-value for first attack
-     */
     @Test
+    @DisplayName("Resist bonus first resist, check correct value equals true")
     void getResistBonusFirstResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
         assertEquals(6,unit1.getResistBonus());
     }
 
     @Test
+    @DisplayName("Resist bonus first attack, check wrong value equals false")
     void getResistBonusFirstResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         assertNotEquals(4,unit1.getResistBonus());
     }
 
-    /**
-     * test to check right ResistBonus-value for second attack
-     */
     @Test
+    @DisplayName("Resist bonus second resist, check correct value equals true")
     void getResistBonusSecondResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
@@ -41,6 +39,7 @@ class RangedUnitTest {
     }
 
     @Test
+    @DisplayName("Resist bonus second resist, check wrong value equals false")
     void getResistBonusSecondResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
@@ -48,10 +47,8 @@ class RangedUnitTest {
         assertNotEquals(6,unit1.getResistBonus());
     }
 
-    /**
-     * test to check right ResistBonus-value for third attack
-     */
     @Test
+    @DisplayName("Resist bonus third resist, check correct value equals true")
     void getResistBonusThirdResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
@@ -61,6 +58,7 @@ class RangedUnitTest {
     }
 
     @Test
+    @DisplayName("Resist bonus third resist, check wrong value equals false")
     void getResistBonusThirdResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);

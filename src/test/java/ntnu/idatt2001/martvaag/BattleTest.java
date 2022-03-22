@@ -1,6 +1,7 @@
 package ntnu.idatt2001.martvaag;
 
 import ntnu.idatt2001.martvaag.Unit.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,10 +14,8 @@ import java.util.ArrayList;
  */
 class BattleTest {
 
-    /**
-     * test to check the simulate-method
-     */
     @Test
+    @DisplayName("Simulate a battle")
     void simulateBattleBetweenTwoArmies() {
         Unit unit11 = new InfantryUnit("Footman", 100);
         Unit unit12 = new CavalryUnit("Knight", 100);
