@@ -18,6 +18,7 @@ public abstract class Unit {
      * @param armor a defence-value, which protects the unit during an attack
      */
     public Unit(String name, int health, int attack, int armor) {
+        if (health<0) throw new IllegalArgumentException("Unit's health cannot be below 0");
         this.name = name;
         this.health = health;
         this.attack = attack;
@@ -78,16 +79,12 @@ public abstract class Unit {
      * @return {@code true} if the unit´s health equals to or is below 0, {@code false} if not
      */
     public boolean isDead(){
-        boolean isDead = false;
-        if (getHealth() <= 0){
-            isDead = true;
-        }
-        return isDead;
+        return getHealth() <= 0;
     }
 
     /**
      * gives bonus when a unit attacks, which gets added to the attack-value
-     * @return attackbonus
+     * @return attack-bonus
      */
     public abstract int getAttackBonus();
 
