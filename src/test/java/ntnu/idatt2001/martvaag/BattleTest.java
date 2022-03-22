@@ -54,10 +54,10 @@ class BattleTest {
         Battle battle = new Battle(armyOne, armyTwo);
         if (battle.simulate().equals(armyOne)){
             assertTrue(armyOne.hasUnits());
-            assertTrue(!armyTwo.hasUnits());
+            assertFalse(armyTwo.hasUnits());
         } else {
             assertTrue(armyTwo.hasUnits());
-            assertTrue(!armyOne.hasUnits());
+            assertFalse(armyOne.hasUnits());
         }
     }
 }
