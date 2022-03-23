@@ -47,16 +47,16 @@ class BattleTest {
             units2.add(unit24);
         }
 
-        Army armyOne = new Army("armyOne", units1);
-        Army armyTwo = new Army("armyTwo", units2);
+        Army HumanArmy = new Army("Human Army", units1);
+        Army OrcishHorde = new Army("Orcish Horde", units2);
 
-        Battle battle = new Battle(armyOne, armyTwo);
-        if (battle.simulate().equals(armyOne)){
-            assertTrue(armyOne.hasUnits());
-            assertFalse(armyTwo.hasUnits());
+        Battle battle = new Battle(HumanArmy, OrcishHorde);
+        if (battle.simulate().equals(HumanArmy)){
+            assertTrue(HumanArmy.hasUnits());
+            assertFalse(OrcishHorde.hasUnits());
         } else {
-            assertTrue(armyTwo.hasUnits());
-            assertFalse(armyOne.hasUnits());
+            assertTrue(OrcishHorde.hasUnits());
+            assertFalse(HumanArmy.hasUnits());
         }
     }
 }

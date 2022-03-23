@@ -8,16 +8,16 @@ import ntnu.idatt2001.martvaag.Unit.Unit;
  * @author martvaag
  */
 public class Battle {
-    private Army armyOne, armyTwo;
+    private Army HumanArmy, OrcishHorde;
 
     /**
      * constructor to a battle between two armies
-     * @param armyOne Army 1
-     * @param armyTwo Army 2
+     * @param HumanArmy Army 1
+     * @param OrcishHorde Army 2
      */
-    public Battle(Army armyOne, Army armyTwo) {
-        this.armyOne = armyOne;
-        this.armyTwo = armyTwo;
+    public Battle(Army HumanArmy, Army OrcishHorde) {
+        this.HumanArmy = HumanArmy;
+        this.OrcishHorde = OrcishHorde;
     }
 
     /**
@@ -30,26 +30,26 @@ public class Battle {
     public Army simulate(){
         Army winner;
         int attack = 1;
-        while (armyOne.hasUnits() && armyTwo.hasUnits()){
-            Unit one = armyOne.getRandom();
-            Unit two = armyTwo.getRandom();
+        while (HumanArmy.hasUnits() && OrcishHorde.hasUnits()){
+            Unit humanUnit = HumanArmy.getRandom();
+            Unit OrcishUnit = OrcishHorde.getRandom();
             if (attack % 2 == 0){
-                armyOne.getRandom().attack(two);
-                if (two.isDead()){
-                    armyTwo.remove(two);
+                HumanArmy.getRandom().attack(OrcishUnit);
+                if (OrcishUnit.isDead()){
+                    OrcishHorde.remove(OrcishUnit);
                 }
             } else {
-                armyTwo.getRandom().attack(one);
-                if (one.isDead()){
-                    armyOne.remove(one);
+                OrcishHorde.getRandom().attack(humanUnit);
+                if (humanUnit.isDead()){
+                    HumanArmy.remove(humanUnit);
                 }
             }
             attack++;
         }
-        if (!armyOne.hasUnits()){
-            winner = armyTwo;
+        if (!HumanArmy.hasUnits()){
+            winner = OrcishHorde;
         } else {
-            winner = armyOne;
+            winner = HumanArmy;
         }
         return winner;
     }
