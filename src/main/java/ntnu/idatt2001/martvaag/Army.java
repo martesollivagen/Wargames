@@ -131,6 +131,10 @@ public class Army {
         return Objects.hash(name);
     }
 
+    /**
+     * get a list of all infantry units in the army
+     * @return list of infantry units
+     */
     public List<Unit> getInfantryUnits(){
         Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof InfantryUnit;
         return units.stream()
@@ -138,27 +142,44 @@ public class Army {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * get a list of all cavalry units, except commander units, in the army
+     * @return list of cavalry units
+     */
     public List<Unit> getCavalryUnits(){
-        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
+        Predicate<Unit> unitEqualsCavalryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
         return units.stream()
-                .filter(unitEqualsInfantryUnit)
+                .filter(unitEqualsCavalryUnit)
                 .collect(Collectors.toList());
     }
 
+    /**
+     * get a list of all ranged units in the army
+     * @return list of ranged units
+     */
     public List<Unit> getRangedUnits(){
-        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof RangedUnit;
+        Predicate<Unit> unitEqualsRangedUnit = unit -> unit instanceof RangedUnit;
         return units.stream()
-                .filter(unitEqualsInfantryUnit)
+                .filter(unitEqualsRangedUnit)
                 .collect(Collectors.toList());
     }
 
+    /**
+     * get a list of all commander units in the army
+     * @return list of commander units
+     */
     public List<Unit> getCommanderUnits(){
-        Predicate<Unit> unitEqualsInfantryUnit = unit -> unit instanceof CommanderUnit;
+        Predicate<Unit> unitEqualsCommanderUnits = unit -> unit instanceof CommanderUnit;
         return units.stream()
-                .filter(unitEqualsInfantryUnit)
+                .filter(unitEqualsCommanderUnits)
                 .collect(Collectors.toList());
     }
 
+    /**
+     * save an army to a file
+     * @param file file
+     * @param army army
+     */
     public static void writeToFile(File file, Army army){
         FileWriter fileWriter = null;
 
@@ -183,6 +204,10 @@ public class Army {
         }
     }
 
+    /**
+     * read an army from a file
+     * @param file file
+     */
     public static void readFromFile(File file){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
