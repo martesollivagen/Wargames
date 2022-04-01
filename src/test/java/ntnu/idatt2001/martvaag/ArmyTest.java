@@ -161,7 +161,7 @@ class ArmyTest {
     @DisplayName("Write an army to a file")
     void testWriteToFile(){
         Army humanArmy = new Army("Human army", addUnits());
-        File file = new File("src/test/file.csv");
+        File file = new File("src/main/resources/human-army.csv");
         Army.writeToFile(file, humanArmy);
         assertTrue(file.canWrite());
     }
@@ -169,7 +169,7 @@ class ArmyTest {
     @Test
     @DisplayName("Read an army from a file")
     void testReadFile(){
-        File file = new File("src/test/file.csv");
+        File file = new File("src/main/resources/human-army.csv");
         Army.readFromFile(file);
         assertTrue(file.canRead());
     }
