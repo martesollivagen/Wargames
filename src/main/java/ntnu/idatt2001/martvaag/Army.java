@@ -176,31 +176,22 @@ public class Army {
     }
 
     /**
-     * save an army to a file
+     * write an army to a file
      * @param file file
      * @param army army
      */
     public static void writeToFile(File file, Army army){
-        FileWriter fileWriter = null;
-
-        StringBuilder string = new StringBuilder("" + army.getName());
+        StringBuilder armyInfo = new StringBuilder("" + army.getName());
         for (Unit unit : army.getUnits()){
-            string.append("\n").append(unit.getClass().getSimpleName()).append(",").append(unit.getName()).append(",").append(unit.getHealth());
+            armyInfo.append("\n").append(unit.getClass().getSimpleName()).append(",")
+                    .append(unit.getName()).append(",")
+                    .append(unit.getHealth());
         }
 
-        try{
-            fileWriter = new FileWriter(file);
-            fileWriter.write(string.toString());
+        try (FileWriter fileWriter = new FileWriter(file)){
+            fileWriter.write(armyInfo.toString());
         } catch (IOException e){
             e.printStackTrace();
-        } finally {
-            try {
-                if (fileWriter != null){
-                    fileWriter.close();
-                }
-            } catch (IOException e){
-                e.printStackTrace();
-            }
         }
     }
 
