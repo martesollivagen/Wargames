@@ -17,34 +17,25 @@ class BattleTest {
     @Test
     @DisplayName("Simulate a battle")
     void simulateBattleBetweenTwoArmies() {
-        Unit unit11 = new InfantryUnit("Footman", 100);
-        Unit unit12 = new CavalryUnit("Knight", 100);
-        Unit unit13 = new RangedUnit("Archer", 100);
-        Unit unit14 = new CommanderUnit("Mountain King", 180);
-
-        Unit unit21 = new InfantryUnit("Grunt", 100);
-        Unit unit22 = new CavalryUnit("Raider", 100);
-        Unit unit23 = new RangedUnit("Spearman", 100);
-        Unit unit24 = new CommanderUnit("Gul´dan", 180);
 
         ArrayList<Unit> units1 = new ArrayList<>();
         ArrayList<Unit> units2 = new ArrayList<>();
 
         for(int i = 0; i<500; i++){
-            units1.add(unit11);
-            units2.add(unit21);
+            units1.add(new InfantryUnit("Footman", 100));
+            units2.add(new InfantryUnit("Grunt", 100));
         }
         for(int i = 0; i<100; i++){
-            units1.add(unit12);
-            units2.add(unit22);
+            units1.add(new CavalryUnit("Knight", 100));
+            units2.add(new CavalryUnit("Raider", 100));
         }
         for(int i = 0; i<200; i++){
-            units1.add(unit13);
-            units2.add(unit23);
+            units1.add(new RangedUnit("Archer", 100));
+            units2.add(new RangedUnit("Spearman", 100));
         }
         for(int i = 0; i<1; i++){
-            units1.add(unit14);
-            units2.add(unit24);
+            units1.add(new CommanderUnit("Mountain King", 180));
+            units2.add(new CommanderUnit("Gul´dan", 180));
         }
 
         Army HumanArmy = new Army("Human Army", units1);
