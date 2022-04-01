@@ -70,7 +70,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army contains units")
-    public void ArmyHasUnits() {
+    void armyHasUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army humanArmy = new Army("Human army", units);
         Unit unit = new InfantryUnit("Footman", 100);
@@ -80,7 +80,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army does not have any units")
-    public void ArmyHasNoUnits() {
+    void armyHasNoUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army humanArmy = new Army("Human army", units);
         assertFalse(humanArmy.hasUnits());
@@ -103,7 +103,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army equals another army, check same name equals true")
-    void testEqualNames() {
+    void equalNames() {
         Army humanArmy1 = new Army("Human army");
         Army humanArmy2 = new Army("Human army");
         assertEquals(humanArmy1, humanArmy2);
@@ -111,7 +111,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army equals another army, check different names equals false")
-    void testNotEqualNames() {
+    void notEqualNames() {
         Army humanArmy = new Army("Human Army");
         Army orcishHorde = new Army("Orcish Horde");
         assertNotEquals(humanArmy, orcishHorde);
@@ -119,7 +119,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of InfantryUnits")
-    void testGetInfantryUnits(){
+    void getInfantryUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isInfantryUnit = unit -> unit instanceof InfantryUnit;
         boolean check = humanArmy.getInfantryUnits().stream().allMatch(isInfantryUnit);
@@ -129,7 +129,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of CavalryUnits")
-    void testGetCavalryUnits(){
+    void getCavalryUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isCavalryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
         boolean check = humanArmy.getCavalryUnits().stream().allMatch(isCavalryUnit);
@@ -139,7 +139,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of RangedUnits")
-    void testGetRangedUnits(){
+    void getRangedUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isRangedUnit = unit -> unit instanceof RangedUnit;
         boolean check = humanArmy.getRangedUnits().stream().allMatch(isRangedUnit);
@@ -149,7 +149,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of CommanderUnits")
-    void testGetCommanderUnits(){
+    void getCommanderUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isCommanderUnit = unit -> unit instanceof CommanderUnit;
         boolean check = humanArmy.getCommanderUnits().stream().allMatch(isCommanderUnit);
@@ -159,18 +159,21 @@ class ArmyTest {
 
     @Test
     @DisplayName("Write an army to a file")
-    void testWriteToFile(){
+    void writeToFile(){
         Army humanArmy = new Army("Human army", addUnits());
         File file = new File("src/main/resources/human-army.csv");
         Army.writeToFile(file, humanArmy);
+        assertTrue(file.exists());
         assertTrue(file.canWrite());
+        assertTrue(file.length() > 0);
     }
 
     @Test
     @DisplayName("Read an army from a file")
-    void testReadFile(){
+    void readFile(){
         File file = new File("src/main/resources/human-army.csv");
         Army.readFromFile(file);
+        assertTrue(file.exists());
         assertTrue(file.canRead());
     }
 }
