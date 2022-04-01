@@ -99,6 +99,6 @@ public abstract class Unit {
      * @return textual representation of a unit
      */
     public String toString(){
-        return "\n'" + name + "', Health: " + this.health + ", Attack: " + this.attack + ", Armor: " + this.armor;
+        return "\n" + name + ", Health: " + this.health;
     }
 }
