@@ -199,7 +199,8 @@ public class Army {
      * read an army from a file
      * @param file file
      */
-    public static void readFromFile(File file){
+    public static void readFromFile(File file) throws FileNotFoundException {
+        if (!file.exists()) throw new FileNotFoundException("This file does not exist");
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = bufferedReader.readLine()) !=null){
