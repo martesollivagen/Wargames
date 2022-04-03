@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for RangedUnit class
- * @version 1.0 2022-03-05
+ * @version 2022-04-03
  * @author martvaag
  */
 class RangedUnitTest {

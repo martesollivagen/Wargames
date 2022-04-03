@@ -2,7 +2,7 @@ package ntnu.idatt2001.martvaag.Unit;
 
 /**
  * abstract class which represent a unit
- * @version 1.0 2022-03-05
+ * @version 2022-04-03
  * @author martvaag
  */
 public abstract class Unit {

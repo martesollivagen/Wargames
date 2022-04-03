@@ -4,7 +4,7 @@ import ntnu.idatt2001.martvaag.Unit.Unit;
 
 /**
  * class which represent a battle between two armies
- * @version 1.0 2022-03-05
+ * @version 2022-04-03
  * @author martvaag
  */
 public class Battle {

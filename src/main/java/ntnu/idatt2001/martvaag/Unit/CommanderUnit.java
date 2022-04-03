@@ -4,7 +4,7 @@ import ntnu.idatt2001.martvaag.Unit.CavalryUnit;
 
 /**
  * class which represent a stronger version of a CavalryUnit
- * @version 1.0 2022-03-05
+ * @version 2022-04-03
  * @author martvaag
  */
 public class CommanderUnit extends CavalryUnit {

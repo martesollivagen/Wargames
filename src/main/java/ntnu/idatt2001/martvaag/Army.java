@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * class which represent an army consisting of multiple units
- * @version 1.0 2022-03-05
+ * @version 2022-04-03
  * @author martvaag
  */
 public class Army {
