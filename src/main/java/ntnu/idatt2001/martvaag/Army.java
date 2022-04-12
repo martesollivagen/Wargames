@@ -103,9 +103,9 @@ public class Army {
     public String toString(){
         StringBuilder result = new StringBuilder();
         for(Unit unit : units){
-            result.append(unit.toString());
+            result.append("\n").append(unit.toString());
         }
-        return "\nArmy: " + '"' + name + '"' + "\n" + result;
+        return "\n" + '"' + name + '"' + "\n" + result;
     }
 
     /**
@@ -181,33 +181,36 @@ public class Army {
      * @param army army
      */
     public static void writeToFile(File file, Army army){
-        StringBuilder armyInfo = new StringBuilder("" + army.getName());
-        for (Unit unit : army.getUnits()){
-            armyInfo.append("\n").append(unit.getClass().getSimpleName()).append(",")
-                    .append(unit.getName()).append(",")
-                    .append(unit.getHealth());
-        }
 
         try (FileWriter fileWriter = new FileWriter(file)){
-            fileWriter.write(armyInfo.toString());
+            fileWriter.write(army.getName());
+            for (Unit unit : army.getUnits()){
+                fileWriter.write("\n" + unit.toString());
+            }
         } catch (IOException e){
             e.printStackTrace();
         }
     }
 
     /**
-     * read an army from a file
-     * @param file file
+     * read an Army from a file
+     * @param path file path
+     * @return Army from file
      */
-    public static void readFromFile(File file) throws FileNotFoundException {
-        if (!file.exists()) throw new FileNotFoundException("This file does not exist");
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) !=null){
-                System.out.println(line);
-            }
+    public static Army readArmyFromFile(String path){
+        Army army = null;
+        ArrayList<Unit> units = new ArrayList<>();
+        File fileToRead = new File(path);
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileToRead))){
+            String line = reader.readLine();
+            army = new Army(line, units);
+                while ((line = reader.readLine()) != null){
+                    String [] list = line.split(",");
+                    army.add(UnitFactory.createUnit(list[0], list[1], Integer.parseInt(list[2])));
+                }
         } catch (IOException e){
             e.printStackTrace();
         }
+        return army;
     }
 }
