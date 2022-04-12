@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -171,9 +170,10 @@ class ArmyTest {
 
     @Test
     @DisplayName("Read an army from a file")
-    void readFile() throws FileNotFoundException {
-        File file = new File("src/main/resources/human-army.csv");
-        Army.readFromFile(file);
+    void readFile() {
+        String filePath = "src/main/resources/ntnu/idatt2001/martvaag/PreCreatedArmy/human-army.csv";
+        File file = new File(filePath);
+        Army.readArmyFromFile(filePath);
         assertTrue(file.exists());
         assertTrue(file.canRead());
     }
