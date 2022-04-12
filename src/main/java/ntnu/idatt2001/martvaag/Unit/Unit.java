@@ -5,7 +5,7 @@ package ntnu.idatt2001.martvaag.Unit;
  * @version 2022-04-03
  * @author martvaag
  */
-public abstract class Unit {
+public abstract class Unit{
     private String name;
     private int health, attack, armor;
 
@@ -99,6 +99,6 @@ public abstract class Unit {
      * @return textual representation of a unit
      */
     public String toString(){
-        return "\n" + name + ", Health: " + this.health;
+        return getClass().getSimpleName() + "," + name + "," + this.health;
     }
 }
