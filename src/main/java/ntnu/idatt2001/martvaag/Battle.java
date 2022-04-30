@@ -27,19 +27,19 @@ public class Battle {
      * this process continues until one army has lost all it´s units and the winning army is returned
      * @return the winning army
      */
-    public Army simulate(){
+    public Army simulate(String terrain){
         Army winner;
         int attack = 1;
         while (HumanArmy.hasUnits() && OrcishHorde.hasUnits()){
             Unit humanUnit = HumanArmy.getRandom();
             Unit OrcishUnit = OrcishHorde.getRandom();
             if (attack % 2 == 0){
-                HumanArmy.getRandom().attack(OrcishUnit);
+                HumanArmy.getRandom().attack(OrcishUnit, terrain);
                 if (OrcishUnit.isDead()){
                     OrcishHorde.remove(OrcishUnit);
                 }
             } else {
-                OrcishHorde.getRandom().attack(humanUnit);
+                OrcishHorde.getRandom().attack(humanUnit, terrain);
                 if (humanUnit.isDead()){
                     HumanArmy.remove(humanUnit);
                 }
@@ -59,6 +59,6 @@ public class Battle {
      * @return textual representation of a battle
      */
     public String toString(){
-        return "The winning army of this battle is: " + simulate();
+        return "The winning army of this battle is: ";
     }
 }
