@@ -156,25 +156,4 @@ class ArmyTest {
 
         assertTrue(check);
     }
-
-    @Test
-    @DisplayName("Write an army to a file")
-    void writeToFile(){
-        Army humanArmy = new Army("Human army", addUnits());
-        File file = new File("src/main/resources/human-army.csv");
-        Army.writeToFile(file, humanArmy);
-        assertTrue(file.exists());
-        assertTrue(file.canWrite());
-        assertTrue(file.length() > 0);
-    }
-
-    @Test
-    @DisplayName("Read an army from a file")
-    void readFile() {
-        String filePath = "src/main/resources/ntnu/idatt2001/martvaag/PreCreatedArmy/human-army.csv";
-        File file = new File(filePath);
-        Army.readArmyFromFile(filePath);
-        assertTrue(file.exists());
-        assertTrue(file.canRead());
-    }
 }
