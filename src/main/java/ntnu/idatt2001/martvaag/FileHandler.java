@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 /**
  * class for fileHandling, includes methods for writing and reading an army from a file
- * @version 2022-04-030
+ * @version 2022-05-01
  * @author martvaag
  */
 public class FileHandler {
 
     /**
      * write an army to a file
+     * writes every unit "type" , "name" , "health"
      * @param file file
      * @param army army
      */
