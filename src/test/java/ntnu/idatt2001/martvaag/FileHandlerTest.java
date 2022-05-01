@@ -12,22 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileHandlerTest {
 
     public ArrayList<Unit> addUnits(){
-        Unit unit11 = new InfantryUnit("Footman", 100);
-        Unit unit12 = new CavalryUnit("Knight", 100);
-        Unit unit13 = new RangedUnit("Archer", 100);
-        Unit unit14 = new CommanderUnit("Mountain King", 180);
-
         ArrayList<Unit> units = new ArrayList<>();
 
-        for(int i = 0; i<10; i++){
-            units.add(unit11);
-        }for(int i = 0; i<5; i++){
-            units.add(unit12);
-        }for(int i = 0; i<2; i++){
-            units.add(unit13);
-        }for(int i = 0; i<1; i++){
-            units.add(unit14);
-        }
+        units.addAll(UnitFactory.createMultipleUnits(10,"infantryunit","Footman",100));
+        units.addAll(UnitFactory.createMultipleUnits(5,"cavalryunit","Knight",100));
+        units.addAll(UnitFactory.createMultipleUnits(2,"rangedunit","Archer",100));
+        units.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Mountain King",100));
+
         return units;
     }
 

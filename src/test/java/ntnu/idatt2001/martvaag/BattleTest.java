@@ -20,28 +20,22 @@ class BattleTest {
     @DisplayName("Simulate a battle")
     void simulateBattleBetweenTwoArmies() {
 
-        ArrayList<Unit> units1 = new ArrayList<>();
-        ArrayList<Unit> units2 = new ArrayList<>();
+        ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
-        for(int i = 0; i<500; i++){
-            units1.add(new InfantryUnit("Footman", 100));
-            units2.add(new InfantryUnit("Grunt", 100));
-        }
-        for(int i = 0; i<100; i++){
-            units1.add(new CavalryUnit("Knight", 100));
-            units2.add(new CavalryUnit("Raider", 100));
-        }
-        for(int i = 0; i<200; i++){
-            units1.add(new RangedUnit("Archer", 100));
-            units2.add(new RangedUnit("Spearman", 100));
-        }
-        for(int i = 0; i<1; i++){
-            units1.add(new CommanderUnit("Mountain King", 180));
-            units2.add(new CommanderUnit("Gul´dan", 180));
-        }
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Footman",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Knight",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Archer",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Mountain King",100));
 
-        Army HumanArmy = new Army("Human Army", units1);
-        Army OrcishHorde = new Army("Orcish Horde", units2);
+        ArrayList<Unit> unitsOrcishHorde = new ArrayList<>();
+
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Grunt",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Raider",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Spearman",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Gul´dan",100));
+
+        Army HumanArmy = new Army("Human Army", unitsHumanArmy);
+        Army OrcishHorde = new Army("Orcish Horde", unitsOrcishHorde);
 
         Battle battle = new Battle(HumanArmy, OrcishHorde);
         if (battle.simulate(FOREST).equals(HumanArmy)){
