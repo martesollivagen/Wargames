@@ -17,7 +17,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Unit attack another unit, check correct value equals true")
-    void attack() {
+    void unitAttackAnotherUnit() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2,"HILL");
@@ -26,7 +26,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Unit attack another unit, check wrong value equals false")
-    void attackFalse(){
+    void unitAttackAnotherUnitFalse(){
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2,"");

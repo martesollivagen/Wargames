@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * class containing tests for FileHandler class
+ * @version 2022-05-01
+ * @author martvaag
+ */
 class FileHandlerTest {
 
     public ArrayList<Unit> addUnits(){
@@ -24,7 +29,7 @@ class FileHandlerTest {
 
     @Test
     @DisplayName("Write an army to a file")
-    void writeToFile(){
+    void writeArmyToFile(){
         Army humanArmy = new Army("Human army", addUnits());
         File file = new File("src/main/resources/human-army.csv");
         FileHandler.writeToFile(file, humanArmy);
@@ -35,7 +40,7 @@ class FileHandlerTest {
 
     @Test
     @DisplayName("Read an army from a file")
-    void readFile() {
+    void readArmyFromFile() {
         String filePath = "src/main/resources/ntnu/idatt2001/martvaag/PreCreatedArmy/human-army.csv";
         File file = new File(filePath);
         FileHandler.readArmyFromFile(filePath);
