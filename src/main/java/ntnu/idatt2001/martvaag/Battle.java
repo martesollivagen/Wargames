@@ -8,7 +8,8 @@ import ntnu.idatt2001.martvaag.unit.Unit;
  * @author martvaag
  */
 public class Battle {
-    private Army HumanArmy, OrcishHorde;
+    private final Army HumanArmy;
+    private final Army OrcishHorde;
 
     /**
      * constructor to a battle between two armies
@@ -16,6 +17,7 @@ public class Battle {
      * @param OrcishHorde Army 2
      */
     public Battle(Army HumanArmy, Army OrcishHorde) {
+        if (HumanArmy == null || OrcishHorde == null) throw new IllegalArgumentException("The armies cannot be null");
         this.HumanArmy = HumanArmy;
         this.OrcishHorde = OrcishHorde;
     }
@@ -28,6 +30,7 @@ public class Battle {
      * @return the winning army
      */
     public Army simulate(String terrain){
+        if (!(terrain.equals("PLAINS") || terrain.equals("FOREST") || terrain.equals("HILL"))) throw new IllegalArgumentException("Invalid terrain");
         Army winner;
         int attack = 1;
         while (HumanArmy.hasUnits() && OrcishHorde.hasUnits()){

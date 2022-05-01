@@ -32,6 +32,7 @@ public class Army {
      * @param units list of units
      */
     public Army(String name, ArrayList<Unit> units) {
+        if (name.isEmpty()) throw new IllegalArgumentException("Army's name cannot be empty");
         this.name = name;
         this.units = units;
     }

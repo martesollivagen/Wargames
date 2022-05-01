@@ -19,6 +19,8 @@ public abstract class Unit{
      */
     public Unit(String name, int health, int attack, int armor) {
         if (health<0) throw new IllegalArgumentException("Unit's health cannot be below 0");
+        if (name.isEmpty()) throw new IllegalArgumentException("Unit's name cannot be empty");
+        if (attack<0) throw new IllegalArgumentException("Unit's attack cannot be below 0");
         this.name = name;
         this.health = health;
         this.attack = attack;
@@ -71,6 +73,7 @@ public abstract class Unit{
      * @param health new health-value
      */
     public void setHealth(int health) {
+        if (health<0) throw new IllegalArgumentException("Unit's health cannot be below 0");
         this.health = health;
     }
 
