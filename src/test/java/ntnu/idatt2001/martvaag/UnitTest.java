@@ -48,4 +48,22 @@ class UnitTest {
         unit.setHealth(80);
         assertNotEquals(100, unit.getHealth());
     }
+
+    @Test
+    @DisplayName("Try create unit with invalid health")
+    void createUnitWithInvalidHealth(){
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Unit unit = new InfantryUnit("Footman",-100);
+        }, "Unit's health cannot be below 0");
+        assertEquals("Unit's health cannot be below 0", thrown.getMessage());
+    }
+
+    @Test
+    @DisplayName("Try create unit with empty name")
+    void createUnitWithEmptyName(){
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Unit unit = new InfantryUnit("",100);
+        }, "Unit's name cannot be empty");
+        assertEquals("Unit's name cannot be empty", thrown.getMessage());
+    }
 }

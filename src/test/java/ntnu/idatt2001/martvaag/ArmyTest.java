@@ -147,4 +147,13 @@ class ArmyTest {
 
         assertTrue(check);
     }
+
+    @Test
+    @DisplayName("Try create army with empty name")
+    void createArmyWithEmptyName(){
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Army army = new Army("", addUnits());
+        }, "Army's name cannot be empty");
+        assertEquals("Army's name cannot be empty", thrown.getMessage());
+    }
 }
