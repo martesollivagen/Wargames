@@ -20,7 +20,7 @@ class UnitTest {
     void attack() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
-        unit1.attack(unit2);
+        unit1.attack(unit2,"HILL");
         assertEquals(97, unit2.getHealth());
     }
 
@@ -29,7 +29,7 @@ class UnitTest {
     void attackFalse(){
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
-        unit1.attack(unit2);
+        unit1.attack(unit2,"");
         assertNotEquals(100, unit2.getHealth());
     }
 

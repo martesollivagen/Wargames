@@ -1,7 +1,5 @@
 package ntnu.idatt2001.martvaag.Unit;
 
-import ntnu.idatt2001.martvaag.Unit.Unit;
-
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)
  * @version 2022-04-03
@@ -36,7 +34,12 @@ public class RangedUnit extends Unit {
      * @return bonus = 3
      */
     @Override
-    public int getAttackBonus() {
+    public int getAttackBonus(String terrain) {
+        if (terrain.equals("HILL")){
+            return 4;
+        } else if (terrain.equals("FOREST")){
+            return 2;
+        }
         return 3;
     }
 
@@ -48,13 +51,16 @@ public class RangedUnit extends Unit {
      * @return 6, 4 og 2, depending on the number of attacks
      */
     @Override
-    public int getResistBonus() {
-        if (hasBeenAttacked == 0){
-            hasBeenAttacked++;
-            return 6;
-        } else if (hasBeenAttacked == 1){
-            hasBeenAttacked++;
-            return 4;
-        } else return 2;
+    public int getResistBonus(String terrain) {
+        if (terrain.equals("FOREST") || terrain.equals("PLAINS") || terrain.equals("HILL")){
+            if (hasBeenAttacked == 0){
+                hasBeenAttacked++;
+                return 6;
+            } else if (hasBeenAttacked == 1){
+                hasBeenAttacked++;
+                return 4;
+            } else return 2;
+        }
+        return 0;
     }
 }

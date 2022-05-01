@@ -14,6 +14,8 @@ import java.util.ArrayList;
  */
 class BattleTest {
 
+    private final static String FOREST = "FOREST";
+
     @Test
     @DisplayName("Simulate a battle")
     void simulateBattleBetweenTwoArmies() {
@@ -42,7 +44,7 @@ class BattleTest {
         Army OrcishHorde = new Army("Orcish Horde", units2);
 
         Battle battle = new Battle(HumanArmy, OrcishHorde);
-        if (battle.simulate().equals(HumanArmy)){
+        if (battle.simulate(FOREST).equals(HumanArmy)){
             assertTrue(HumanArmy.hasUnits());
             assertFalse(OrcishHorde.hasUnits());
         } else {

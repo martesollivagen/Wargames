@@ -30,8 +30,8 @@ public abstract class Unit{
      * the result of the method will be the opponent´s health after the attack
      * @param opponent a unit "opponent"
      */
-    public void attack(Unit opponent){
-        opponent.health = opponent.health - (this.attack + this.getAttackBonus()) + (opponent.armor + opponent.getResistBonus());
+    public void attack(Unit opponent, String terrain){
+        opponent.health = opponent.health - (this.attack + this.getAttackBonus(terrain)) + (opponent.armor + opponent.getResistBonus(terrain));
     }
 
     /**
@@ -86,13 +86,13 @@ public abstract class Unit{
      * gives bonus when a unit attacks, which gets added to the attack-value
      * @return attack-bonus
      */
-    public abstract int getAttackBonus();
+    public abstract int getAttackBonus(String terrain);
 
     /**
      * gives bonus when a unit defends itself, which gets added to the defence-value
      * @return defence-value
      */
-    public abstract int getResistBonus();
+    public abstract int getResistBonus(String terrain);
 
     /**
      * get a reasonable textual representation of a unit
