@@ -30,8 +30,9 @@ class FileHandlerTest {
     @Test
     @DisplayName("Write an army to a file")
     void writeArmyToFile(){
+        String filePath = "src/main/resources/human-army.csv";
         Army humanArmy = new Army("Human army", addUnits());
-        File file = new File("src/main/resources/human-army.csv");
+        File file = new File(filePath);
         FileHandler.writeToFile(file, humanArmy);
         assertTrue(file.exists());
         assertTrue(file.canWrite());
@@ -41,7 +42,7 @@ class FileHandlerTest {
     @Test
     @DisplayName("Read an army from a file")
     void readArmyFromFile() {
-        String filePath = "src/main/resources/ntnu/idatt2001/martvaag/PreCreatedArmy/human-army.csv";
+        String filePath = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/human-army.csv";
         File file = new File(filePath);
         FileHandler.readArmyFromFile(filePath);
         assertTrue(file.exists());
