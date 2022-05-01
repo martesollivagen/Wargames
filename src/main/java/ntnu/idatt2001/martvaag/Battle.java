@@ -1,6 +1,6 @@
 package ntnu.idatt2001.martvaag;
 
-import ntnu.idatt2001.martvaag.Unit.Unit;
+import ntnu.idatt2001.martvaag.unit.Unit;
 
 /**
  * class which represent a battle between two armies

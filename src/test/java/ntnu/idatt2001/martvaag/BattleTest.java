@@ -1,6 +1,6 @@
 package ntnu.idatt2001.martvaag;
 
-import ntnu.idatt2001.martvaag.Unit.*;
+import ntnu.idatt2001.martvaag.unit.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

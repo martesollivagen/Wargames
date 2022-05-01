@@ -1,6 +1,4 @@
-package ntnu.idatt2001.martvaag.Unit;
-
-import ntnu.idatt2001.martvaag.Unit.CavalryUnit;
+package ntnu.idatt2001.martvaag.unit;
 
 /**
  * class which represent a stronger version of a CavalryUnit
