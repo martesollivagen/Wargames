@@ -8,6 +8,12 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+/**
+ * main class that extends Application
+ * used to start and open the application
+ * @version 2022-05-10
+ * @author martvaag
+ */
 public class WargamesApplication extends Application {
 
     @Override
