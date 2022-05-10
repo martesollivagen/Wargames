@@ -1,5 +1,7 @@
 package ntnu.idatt2001.martvaag.unit;
 
+import ntnu.idatt2001.martvaag.Terrain;
+
 /**
  * abstract class which represent a unit
  * @version 2022-04-03
@@ -32,7 +34,7 @@ public abstract class Unit{
      * the result of the method will be the opponent´s health after the attack
      * @param opponent a unit "opponent"
      */
-    public void attack(Unit opponent, String terrain){
+    public void attack(Unit opponent, Terrain terrain){
         opponent.health = opponent.health - (this.attack + this.getAttackBonus(terrain)) + (opponent.armor + opponent.getResistBonus(terrain));
     }
 
@@ -89,13 +91,13 @@ public abstract class Unit{
      * gives bonus when a unit attacks, which gets added to the attack-value
      * @return attack-bonus
      */
-    public abstract int getAttackBonus(String terrain);
+    public abstract int getAttackBonus(Terrain terrain);
 
     /**
      * gives bonus when a unit defends itself, which gets added to the defence-value
      * @return defence-value
      */
-    public abstract int getResistBonus(String terrain);
+    public abstract int getResistBonus(Terrain terrain);
 
     /**
      * get a reasonable textual representation of a unit

@@ -1,5 +1,7 @@
 package ntnu.idatt2001.martvaag.unit;
 
+import ntnu.idatt2001.martvaag.Terrain;
+
 /**
  * class which represent a unit which specialises in melee (nærkamp),
  * and is strong in their first attack (charge)
@@ -35,17 +37,22 @@ public class CavalryUnit extends Unit {
      * @return 4+2 for the first attack, then 2 for the rest
      */
     @Override
-    public int getAttackBonus(String terrain) {
-        if (terrain.equals("PLAINS")){
-            if (hasAttacked == 0){
-                hasAttacked++;
-                return 7;
-            } else return 3;
+    public int getAttackBonus(Terrain terrain) {
+        switch (terrain){
+            case PLAINS:
+                if (hasAttacked == 0){
+                    hasAttacked++;
+                    return 7;
+                } else return 3;
+            case FOREST:
+            case HILL:
+                if (hasAttacked == 0){
+                    hasAttacked++;
+                    return 6;
+                } else return 2;
+            default:
+                return 0;
         }
-        if (hasAttacked == 0){
-            hasAttacked++;
-            return 6;
-        } else return 2;
     }
 
     /**
@@ -53,10 +60,15 @@ public class CavalryUnit extends Unit {
      * @return bonus = 1
      */
     @Override
-    public int getResistBonus(String terrain) {
-        if (terrain.equals("FOREST")){
-            return 0;
+    public int getResistBonus(Terrain terrain) {
+        switch (terrain){
+            case FOREST:
+                return 0;
+            case HILL:
+            case PLAINS:
+                return 1;
+            default:
+                return 0;
         }
-        return 1;
     }
 }

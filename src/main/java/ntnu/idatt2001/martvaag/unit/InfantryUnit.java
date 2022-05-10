@@ -1,5 +1,7 @@
 package ntnu.idatt2001.martvaag.unit;
 
+import ntnu.idatt2001.martvaag.Terrain;
+
 /**
  * class which represent a unit which specialises in melee (nærkamp)
  * @version 2022-04-03
@@ -33,13 +35,16 @@ public class InfantryUnit extends Unit {
      * @return bonus = 2
      */
     @Override
-    public int getAttackBonus(String terrain) {
-        if (terrain.equals("FOREST")){
-            return 3;
-        } else if (terrain.equals("HILL") || terrain.equals("PLAINS")){
-            return 2;
+    public int getAttackBonus(Terrain terrain) {
+        switch (terrain){
+            case FOREST:
+                return 3;
+            case HILL:
+            case PLAINS:
+                return 2;
+            default:
+                return 0;
         }
-        return 0;
     }
 
     /**
@@ -47,10 +52,15 @@ public class InfantryUnit extends Unit {
      * @return bonus = 1
      */
     @Override
-    public int getResistBonus(String terrain) {
-        if (terrain.equals("FOREST")){
-            return 2;
+    public int getResistBonus(Terrain terrain) {
+        switch (terrain){
+            case FOREST:
+                return 2;
+            case HILL:
+            case PLAINS:
+                return 1;
+            default:
+                return 0;
         }
-        return 1;
     }
 }

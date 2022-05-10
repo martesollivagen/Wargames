@@ -19,14 +19,14 @@ class RangedUnitTest {
     @DisplayName("Resist bonus first resist, check correct value equals true")
     void getResistBonusFirstResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
-        assertEquals(6,unit1.getResistBonus("PLAINS"));
+        assertEquals(6,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
     @DisplayName("Resist bonus first attack, check wrong value equals false")
     void getResistBonusFirstResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
-        assertNotEquals(4,unit1.getResistBonus("PLAINS"));
+        assertNotEquals(4,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
@@ -34,8 +34,8 @@ class RangedUnitTest {
     void getResistBonusSecondResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
-        unit2.attack(unit1,"PLAINS");
-        assertEquals(4,unit1.getResistBonus("PLAINS"));
+        unit2.attack(unit1,Terrain.PLAINS);
+        assertEquals(4,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
@@ -43,8 +43,8 @@ class RangedUnitTest {
     void getResistBonusSecondResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
-        unit2.attack(unit1,"PLAINS");
-        assertNotEquals(6,unit1.getResistBonus("PLAINS"));
+        unit2.attack(unit1,Terrain.PLAINS);
+        assertNotEquals(6,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
@@ -52,9 +52,9 @@ class RangedUnitTest {
     void getResistBonusThirdResist() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
-        unit2.attack(unit1,"PLAINS");
-        unit2.attack(unit1,"PLAINS");
-        assertEquals(2,unit1.getResistBonus("PLAINS"));
+        unit2.attack(unit1,Terrain.PLAINS);
+        unit2.attack(unit1,Terrain.PLAINS);
+        assertEquals(2,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
@@ -62,8 +62,8 @@ class RangedUnitTest {
     void getResistBonusThirdResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
-        unit2.attack(unit1,"PLAINS");
-        unit2.attack(unit1,"PLAINS");
-        assertNotEquals(4,unit1.getResistBonus("PLAINS"));
+        unit2.attack(unit1,Terrain.PLAINS);
+        unit2.attack(unit1,Terrain.PLAINS);
+        assertNotEquals(4,unit1.getResistBonus(Terrain.PLAINS));
     }
 }
