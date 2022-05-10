@@ -44,7 +44,7 @@ public class FileHandler {
             army = new Army(line, units);
             while ((line = reader.readLine()) != null){
                 String [] list = line.split(",");
-                army.add(UnitFactory.createUnit(list[0], list[1], Integer.parseInt(list[2])));
+                army.add(UnitFactory.createUnit(UnitTypes.valueOf(list[0].trim().toUpperCase()), list[1], Integer.parseInt(list[2])));
             }
         } catch (IOException e){
             e.printStackTrace();

@@ -14,16 +14,16 @@ public class UnitFactory {
      * @param health unit's health
      * @return new unit
      */
-    public static Unit createUnit(String type, String name, int health){
-        if (type.isBlank() || name.isBlank() || health < 0) throw new IllegalArgumentException("Type and name can't be blank and health can't be below 0");
-        switch (type.trim().toLowerCase()) {
-            case "infantryunit":
+    public static Unit createUnit(UnitTypes type, String name, int health){
+        if (name.isBlank() || health < 0) throw new IllegalArgumentException("Name can't be blank and health can't be below 0");
+        switch (type) {
+            case INFANTRYUNIT:
                 return new InfantryUnit(name, health);
-            case "rangedunit":
+            case RANGEDUNIT:
                 return new RangedUnit(name, health);
-            case "cavalryunit":
+            case CAVALRYUNIT:
                 return new CavalryUnit(name, health);
-            case "commanderunit":
+            case COMMANDERUNIT:
                 return new CommanderUnit(name, health);
             default:
                 return null;
@@ -38,7 +38,7 @@ public class UnitFactory {
      * @param health unit's health
      * @return list of units
      */
-    public static ArrayList<Unit> createMultipleUnits(int numberOfUnits, String type, String name, int health){
+    public static ArrayList<Unit> createMultipleUnits(int numberOfUnits, UnitTypes type, String name, int health){
         ArrayList<Unit> units = new ArrayList<>();
         for (int i = 0; i < numberOfUnits; i++){
             units.add(createUnit(type, name, health));

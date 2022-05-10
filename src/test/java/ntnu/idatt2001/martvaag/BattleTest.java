@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 class BattleTest {
 
-    private final static String FOREST = "FOREST";
+    private final static Terrain FOREST = Terrain.FOREST;
 
     @Test
     @DisplayName("Simulate a battle")
@@ -22,17 +22,17 @@ class BattleTest {
 
         ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Footman",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Knight",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Archer",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Mountain King",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Footman",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,UnitTypes.CAVALRYUNIT,"Knight",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,UnitTypes.RANGEDUNIT,"Archer",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Mountain King",100));
 
         ArrayList<Unit> unitsOrcishHorde = new ArrayList<>();
 
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Grunt",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Raider",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Spearman",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Gul´dan",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Grunt",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(100,UnitTypes.CAVALRYUNIT,"Raider",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(200,UnitTypes.RANGEDUNIT,"Spearman",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Gul´dan",100));
 
         Army HumanArmy = new Army("Human Army", unitsHumanArmy);
         Army OrcishHorde = new Army("Orcish Horde", unitsOrcishHorde);
@@ -61,25 +61,25 @@ class BattleTest {
     void createBattleWithInvalidTerrain(){
         ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Footman",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Knight",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Archer",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Mountain King",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Footman",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,UnitTypes.CAVALRYUNIT,"Knight",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,UnitTypes.RANGEDUNIT,"Archer",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Mountain King",100));
 
         ArrayList<Unit> unitsOrcishHorde = new ArrayList<>();
 
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(500,"infantryunit","Grunt",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(100,"cavalryunit","Raider",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(200,"rangedunit","Spearman",100));
-        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Gul´dan",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Grunt",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(100,UnitTypes.CAVALRYUNIT,"Raider",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(200,UnitTypes.RANGEDUNIT,"Spearman",100));
+        unitsOrcishHorde.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Gul´dan",100));
 
         Army HumanArmy = new Army("Human Army", unitsHumanArmy);
         Army OrcishHorde = new Army("Orcish Horde", unitsOrcishHorde);
         Battle battle = new Battle(HumanArmy, OrcishHorde);
 
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            battle.simulate("Ground");
+            battle.simulate(Terrain.valueOf("Ground"));
         }, "Invalid terrain");
-        assertEquals("Invalid terrain", thrown.getMessage());
+        assertEquals("No enum constant ntnu.idatt2001.martvaag.Terrain.Ground", thrown.getMessage());
     }
 }

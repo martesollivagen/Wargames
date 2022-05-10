@@ -19,10 +19,10 @@ class FileHandlerTest {
     public ArrayList<Unit> addUnits(){
         ArrayList<Unit> units = new ArrayList<>();
 
-        units.addAll(UnitFactory.createMultipleUnits(10,"infantryunit","Footman",100));
-        units.addAll(UnitFactory.createMultipleUnits(5,"cavalryunit","Knight",100));
-        units.addAll(UnitFactory.createMultipleUnits(2,"rangedunit","Archer",100));
-        units.addAll(UnitFactory.createMultipleUnits(1,"commanderunit","Mountain King",100));
+        units.addAll(UnitFactory.createMultipleUnits(10,UnitTypes.INFANTRYUNIT,"Footman",100));
+        units.addAll(UnitFactory.createMultipleUnits(5,UnitTypes.CAVALRYUNIT,"Knight",100));
+        units.addAll(UnitFactory.createMultipleUnits(2,UnitTypes.RANGEDUNIT,"Archer",100));
+        units.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Mountain King",100));
 
         return units;
     }
