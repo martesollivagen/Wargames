@@ -1,5 +1,8 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.tools.filehandling;
 
+import ntnu.idatt2001.martvaag.battle.Army;
+import ntnu.idatt2001.martvaag.tools.factory.UnitFactory;
+import ntnu.idatt2001.martvaag.tools.enums.UnitTypes;
 import ntnu.idatt2001.martvaag.unit.Unit;
 
 import java.io.*;
