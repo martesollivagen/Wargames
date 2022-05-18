@@ -1,14 +1,14 @@
 package ntnu.idatt2001.martvaag.unit;
 
-import ntnu.idatt2001.martvaag.Terrain;
+import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 
 /**
  * abstract class which represent a unit
- * @version 2022-04-03
+ * @version 2022-05-18
  * @author martvaag
  */
 public abstract class Unit{
-    private String name;
+    private final String name;
     private int health, attack, armor;
 
     /**
@@ -98,6 +98,12 @@ public abstract class Unit{
      * @return defence-value
      */
     public abstract int getResistBonus(Terrain terrain);
+
+    /**
+     * heals another unit
+     * @param unit unit
+     */
+    public abstract void heal(Unit unit);
 
     /**
      * get a reasonable textual representation of a unit
