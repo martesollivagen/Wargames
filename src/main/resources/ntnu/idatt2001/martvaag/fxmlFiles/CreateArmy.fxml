@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controllers.CreateArmyController">
+   <children>
+      <AnchorPane layoutX="-7.0" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;">
+         <children>
+            <Button layoutX="56.0" layoutY="646.0" mnemonicParsing="false" onAction="#closeApplication" text="Quit application" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="646.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Label fx:id="confirmationLabelFile1" layoutX="848.0" layoutY="324.0" prefHeight="26.0" prefWidth="203.0">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <TextArea fx:id="army1Units" editable="false" layoutX="284.0" layoutY="178.0" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="97.0" prefWidth="273.0" AnchorPane.leftAnchor="284.0" />
+            <TextArea fx:id="army2Units" editable="false" layoutX="559.0" layoutY="178.0" onMouseEntered="#mouseEntered2" onMouseExited="#mouseExited2" prefHeight="96.0" prefWidth="273.0" AnchorPane.leftAnchor="559.0" />
+            <MenuButton fx:id="downloadArmyButton" layoutX="843.0" layoutY="290.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="216.0" text="Downlaod army from file" AnchorPane.leftAnchor="843.0" AnchorPane.topAnchor="290.0">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#downloadArmy1" text="Download Army 1" />
+                <MenuItem mnemonicParsing="false" onAction="#downloadArmy2" text="Download Army 2" />
+              </items>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </MenuButton>
+            <Button fx:id="simulateBattleButton" layoutX="460.0" layoutY="145.0" mnemonicParsing="false" onAction="#fight" text="Simulate battle" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <TextArea fx:id="battleResult" blendMode="DARKEN" editable="false" layoutX="393.0" layoutY="485.0" prefHeight="151.0" prefWidth="265.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="370.0">
+               <font>
+                  <Font size="19.0" />
+               </font></TextArea>
+            <TextArea fx:id="army1Info" editable="false" layoutX="34.0" layoutY="44.0" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="182.0" prefWidth="346.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="40.0">
+               <font>
+                  <Font size="19.0" />
+               </font></TextArea>
+            <TextArea fx:id="army2Info" editable="false" layoutX="698.0" layoutY="46.0" onMouseEntered="#mouseEntered2" onMouseExited="#mouseExited2" prefHeight="162.0" prefWidth="272.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+               <font>
+                  <Font size="19.0" />
+               </font></TextArea>
+            <Button fx:id="resetButton" layoutX="192.0" layoutY="646.0" mnemonicParsing="false" onAction="#resetArmy" text="Reset armies" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="192.0" AnchorPane.topAnchor="646.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Label fx:id="conformationLabelBattle" layoutX="453.0" layoutY="185.0" prefHeight="26.0" prefWidth="195.0" AnchorPane.leftAnchor="453.0" />
+            <Label fx:id="confirmationLabelFile2" layoutX="846.0" layoutY="354.0" prefHeight="26.0" prefWidth="213.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <MenuButton fx:id="chooseArmy1Button" layoutX="844.0" layoutY="385.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="216.0" text="Choose army for army 1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#alert" text="Human Army" />
+                  <MenuItem mnemonicParsing="false" onAction="#orcishHorde1" text="Orcish Horde Army" />
+                  <MenuItem mnemonicParsing="false" onAction="#gameOfThrones1" text="Game of Thrones" />
+                  <MenuItem mnemonicParsing="false" onAction="#starWarsArmy1" text="Star Wars Army" />
+               </items>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </MenuButton>
+            <MenuButton fx:id="chooseArmy2Button" layoutX="843.0" layoutY="427.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="216.0" text="Choose army for army 2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#humanArmy2" text="Human Army" />
+                  <MenuItem mnemonicParsing="false" onAction="#orcishHorde2" text="Orcish Horde Army" />
+                  <MenuItem mnemonicParsing="false" onAction="#gameOfThrones2" text="Game of Thrones" />
+                  <MenuItem mnemonicParsing="false" onAction="#starWarsArmy2" text="Star Wars Army" />
+               </items>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </MenuButton>
+            <ChoiceBox fx:id="terrainChoiceBox" layoutX="484.0" layoutY="98.0" prefHeight="26.0" prefWidth="122.0" />
+            <Label layoutX="505.0" layoutY="72.0" text="Choose terrain" />
+            <ImageView fx:id="imageArmy1" fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="275.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="275.0" />
+            <ImageView fx:id="imageArmy2" fitHeight="150.0" fitWidth="200.0" layoutX="540.0" layoutY="264.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="275.0" />
+            <Label fx:id="vsLabel" layoutX="466.0" layoutY="336.0" text="VS" textAlignment="CENTER" AnchorPane.leftAnchor="535.0" AnchorPane.rightAnchor="535.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="winnerImage" fitHeight="202.0" fitWidth="300.0" layoutX="346.0" layoutY="261.0" pickOnBounds="true" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" />
+            <Text fx:id="winnerOfBattleText" layoutX="300.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="425.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <AnchorPane fx:id="createOwnArmy" layoutX="43.0" layoutY="258.0" prefHeight="378.0" prefWidth="279.0" style="-fx-border-color: grey;">
+               <children>
+                  <ChoiceBox fx:id="unitType" layoutX="121.0" layoutY="55.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="numberOfUnitsToAddChoiceBox" layoutX="118.0" layoutY="177.0" prefWidth="150.0" />
+                  <TextField fx:id="addUnitArmy1" layoutX="120.0" layoutY="134.0" prefHeight="26.0" prefWidth="148.0" promptText="Name of unit" />
+                  <Button layoutX="59.0" layoutY="244.0" mnemonicParsing="false" onAction="#createArmy1" text="Add unit(s) to your army">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/point.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="26.0" layoutY="337.0" mnemonicParsing="false" onAction="#resetArmies" text="Empty your army" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                  <ChoiceBox fx:id="UnitHealthChoiceBox" layoutX="121.0" layoutY="92.0" prefWidth="150.0" />
+                  <Label fx:id="unitTypeLabel" layoutX="5.0" layoutY="59.0" prefHeight="19.0" prefWidth="215.0" text="Select your unit type" />
+                  <Text layoutX="62.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create you own army!">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="createArmyConfirmationLabel" layoutX="61.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="143.0" />
+                  <Label layoutX="9.0" layoutY="97.0" text="Select unit's health" />
+                  <Label layoutX="3.0" layoutY="182.0" text="Add number of units" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
