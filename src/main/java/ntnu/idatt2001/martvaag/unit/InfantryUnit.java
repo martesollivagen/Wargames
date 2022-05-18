@@ -1,6 +1,6 @@
 package ntnu.idatt2001.martvaag.unit;
 
-import ntnu.idatt2001.martvaag.Terrain;
+import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 
 /**
  * class which represent a unit which specialises in melee (nærkamp)
@@ -62,5 +62,15 @@ public class InfantryUnit extends Unit {
             default:
                 return 0;
         }
+    }
+
+    /**
+     * method to heal other units
+     * this unit cannot heal and the method is therefore empty
+     * @param unit unit
+     */
+    @Override
+    public void heal(Unit unit) {
+
     }
 }
