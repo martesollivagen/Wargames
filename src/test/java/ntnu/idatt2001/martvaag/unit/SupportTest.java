@@ -1,8 +1,5 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.unit;
 
-import ntnu.idatt2001.martvaag.unit.RangedUnit;
-import ntnu.idatt2001.martvaag.unit.SupportUnit;
-import ntnu.idatt2001.martvaag.unit.Unit;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

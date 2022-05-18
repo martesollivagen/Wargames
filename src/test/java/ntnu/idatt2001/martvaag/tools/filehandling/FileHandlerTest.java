@@ -1,5 +1,8 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.tools.filehandling;
 
+import ntnu.idatt2001.martvaag.battle.Army;
+import ntnu.idatt2001.martvaag.tools.factory.UnitFactory;
+import ntnu.idatt2001.martvaag.tools.enums.UnitTypes;
 import ntnu.idatt2001.martvaag.unit.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +22,7 @@ class FileHandlerTest {
     public ArrayList<Unit> addUnits(){
         ArrayList<Unit> units = new ArrayList<>();
 
-        units.addAll(UnitFactory.createMultipleUnits(10,UnitTypes.INFANTRYUNIT,"Footman",100));
+        units.addAll(UnitFactory.createMultipleUnits(10, UnitTypes.INFANTRYUNIT,"Footman",100));
         units.addAll(UnitFactory.createMultipleUnits(5,UnitTypes.CAVALRYUNIT,"Knight",100));
         units.addAll(UnitFactory.createMultipleUnits(2,UnitTypes.RANGEDUNIT,"Archer",100));
         units.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Mountain King",100));
@@ -30,7 +33,7 @@ class FileHandlerTest {
     @Test
     @DisplayName("Write an army to a file")
     void writeArmyToFile(){
-        String filePath = "src/main/resources/human-army.csv";
+        String filePath = "src/test/java/ntnu/idatt2001/martvaag/tools/filehandling/humanArmyTestFile.csv";
         Army humanArmy = new Army("Human army", addUnits());
         File file = new File(filePath);
         FileHandler.writeToFile(file, humanArmy);

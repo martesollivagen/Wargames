@@ -1,8 +1,6 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.unit;
 
-import ntnu.idatt2001.martvaag.unit.InfantryUnit;
-import ntnu.idatt2001.martvaag.unit.RangedUnit;
-import ntnu.idatt2001.martvaag.unit.Unit;
+import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +27,7 @@ class UnitTest {
     void unitAttackAnotherUnitFalse(){
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
-        unit1.attack(unit2,Terrain.PLAINS);
+        unit1.attack(unit2, Terrain.PLAINS);
         assertNotEquals(100, unit2.getHealth());
     }
 

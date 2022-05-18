@@ -1,8 +1,6 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.unit;
 
-import ntnu.idatt2001.martvaag.unit.InfantryUnit;
-import ntnu.idatt2001.martvaag.unit.RangedUnit;
-import ntnu.idatt2001.martvaag.unit.Unit;
+import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -62,7 +60,7 @@ class RangedUnitTest {
     void getResistBonusThirdResistFalse(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
-        unit2.attack(unit1,Terrain.PLAINS);
+        unit2.attack(unit1, Terrain.PLAINS);
         unit2.attack(unit1,Terrain.PLAINS);
         assertNotEquals(4,unit1.getResistBonus(Terrain.PLAINS));
     }
