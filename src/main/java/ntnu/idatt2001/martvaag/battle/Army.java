@@ -1,4 +1,4 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.battle;
 
 import ntnu.idatt2001.martvaag.unit.*;
 
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * class which represent an army consisting of multiple units
- * @version 2022-04-03
+ * @version 2022-05-18
  * @author martvaag
  */
 public class Army {
@@ -172,6 +172,17 @@ public class Army {
         Predicate<Unit> unitEqualsCommanderUnits = unit -> unit instanceof CommanderUnit;
         return units.stream()
                 .filter(unitEqualsCommanderUnits)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * get a list of all support units in the army
+     * @return list of support units
+     */
+    public List<Unit> getSupportUnits(){
+        Predicate<Unit> unitEqualsSupportUnits = unit -> unit instanceof SupportUnit;
+        return units.stream()
+                .filter(unitEqualsSupportUnits)
                 .collect(Collectors.toList());
     }
 }
