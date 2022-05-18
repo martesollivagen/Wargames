@@ -1,5 +1,8 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.battle;
 
+import ntnu.idatt2001.martvaag.tools.enums.Terrain;
+import ntnu.idatt2001.martvaag.tools.factory.UnitFactory;
+import ntnu.idatt2001.martvaag.tools.enums.UnitTypes;
 import ntnu.idatt2001.martvaag.unit.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -63,7 +66,7 @@ class BattleTest {
 
         unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Footman",100));
         unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(100,UnitTypes.CAVALRYUNIT,"Knight",100));
-        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200,UnitTypes.RANGEDUNIT,"Archer",100));
+        unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(200, UnitTypes.RANGEDUNIT,"Archer",100));
         unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(1,UnitTypes.COMMANDERUNIT,"Mountain King",100));
 
         ArrayList<Unit> unitsOrcishHorde = new ArrayList<>();
@@ -80,6 +83,6 @@ class BattleTest {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             battle.simulate(Terrain.valueOf("Ground"));
         }, "Invalid terrain");
-        assertEquals("No enum constant ntnu.idatt2001.martvaag.Terrain.Ground", thrown.getMessage());
+        assertEquals("No enum constant ntnu.idatt2001.martvaag.tools.enums.Terrain.Ground", thrown.getMessage());
     }
 }
