@@ -8,28 +8,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for CavalryUnit class
- * @version 2022-04-03
+ * @version 2022-05-19
  * @author martvaag
  */
 class CavalryUnitTest {
 
     @Test
     @DisplayName("Attack bonus first attack, check correct value equals true")
-    void getAttackBonusFirstAttack() {
+    void getAttackBonusForFirstAttackCheckCorrectValue() {
         Unit unit = new CavalryUnit("Knight", 100);
         assertEquals(6,unit.getAttackBonus(Terrain.FOREST));
     }
 
     @Test
     @DisplayName("Attack bonus first attack, check wrong value equals false")
-    void getAttackBonusFirstAttackFalse(){
+    void getAttackBonusForFirstAttackCheckFalseValue(){
         Unit unit = new CavalryUnit("Knight", 100);
         assertNotEquals(2,unit.getAttackBonus(Terrain.FOREST));
     }
 
     @Test
     @DisplayName("Attack bonus second attack, check correct value equals true")
-    void getAttackBonusSecondAttack() {
+    void getAttackBonusForSecondAttackCheckCorrectValue() {
         Unit unit1 = new CavalryUnit("Knight", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit1.attack(unit2,Terrain.FOREST);
@@ -38,7 +38,7 @@ class CavalryUnitTest {
 
     @Test
     @DisplayName("Attack bonus second attack, check wrong value equals false")
-    void getAttackBonusSecondAttackFalse(){
+    void getAttackBonusForSecondAttackCheckFalseValue(){
         Unit unit1 = new CavalryUnit("Knight", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit1.attack(unit2, Terrain.FOREST);

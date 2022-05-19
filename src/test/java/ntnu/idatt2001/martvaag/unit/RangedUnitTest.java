@@ -8,28 +8,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for RangedUnit class
- * @version 2022-04-03
+ * @version 2022-05-19
  * @author martvaag
  */
 class RangedUnitTest {
 
     @Test
     @DisplayName("Resist bonus first resist, check correct value equals true")
-    void getResistBonusFirstResist() {
+    void getResistBonusRangedUnitForFirstResistCheckCorrectValue() {
         Unit unit1 = new RangedUnit("Archer", 100);
         assertEquals(6,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
     @DisplayName("Resist bonus first attack, check wrong value equals false")
-    void getResistBonusFirstResistFalse(){
+    void getResistBonusRangedUnitForFirstResistCheckForFalseValue(){
         Unit unit1 = new RangedUnit("Archer", 100);
         assertNotEquals(4,unit1.getResistBonus(Terrain.PLAINS));
     }
 
     @Test
     @DisplayName("Resist bonus second resist, check correct value equals true")
-    void getResistBonusSecondResist() {
+    void getResistBonusRangedUnitForSecondResistCheckCorrectValue() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1,Terrain.PLAINS);
@@ -38,7 +38,7 @@ class RangedUnitTest {
 
     @Test
     @DisplayName("Resist bonus second resist, check wrong value equals false")
-    void getResistBonusSecondResistFalse(){
+    void getResistBonusRangedUnitForSecondResistCheckForFalseValue(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1,Terrain.PLAINS);
@@ -47,7 +47,7 @@ class RangedUnitTest {
 
     @Test
     @DisplayName("Resist bonus third resist, check correct value equals true")
-    void getResistBonusThirdResist() {
+    void getResistBonusRangedUnitForThirdResistCheckCorrectValue() {
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1,Terrain.PLAINS);
@@ -57,7 +57,7 @@ class RangedUnitTest {
 
     @Test
     @DisplayName("Resist bonus third resist, check wrong value equals false")
-    void getResistBonusThirdResistFalse(){
+    void getResistBonusRangedUnitForThirdResistCheckForFalseValue(){
         Unit unit1 = new RangedUnit("Archer", 100);
         Unit unit2 = new InfantryUnit("Footman", 100);
         unit2.attack(unit1, Terrain.PLAINS);

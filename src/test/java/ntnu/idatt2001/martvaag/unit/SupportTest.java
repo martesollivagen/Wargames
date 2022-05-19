@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for SupportUnit class
- * @version 2022-05-18
+ * @version 2022-05-19
  * @author martvaag
  */
 class SupportTest {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * class containing test for Battle class
- * @version 2022-04-03
+ * @version 2022-05-19
  * @author martvaag
  */
 class BattleTest {
@@ -52,7 +52,7 @@ class BattleTest {
 
     @Test
     @DisplayName("Try create battle with null armies")
-    void createBattleWithNullArmies(){
+    void createBattleWithNullArmiesToCheckThrownException(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Battle battle = new Battle(null, null);
         }, "The armies cannot be null");
@@ -61,7 +61,7 @@ class BattleTest {
 
     @Test
     @DisplayName("Try create battle with invalid terrain")
-    void createBattleWithInvalidTerrain(){
+    void createBattleWithInvalidTerrainToCheckThrownException(){
         ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
         unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Footman",100));

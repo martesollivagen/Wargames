@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for FileHandler class
- * @version 2022-05-01
+ * @version 2022-05-19
  * @author martvaag
  */
 class FileHandlerTest {
@@ -44,12 +44,12 @@ class FileHandlerTest {
 
     @Test
     @DisplayName("Read an army from a file")
-    void readArmyFromFile() {
+    void readAndCreateArmyFromFile() {
         String filePath = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/human-army.csv";
         File file = new File(filePath);
         FileHandler.readArmyFromFile(filePath);
         assertTrue(file.exists());
         assertTrue(file.canRead());
+        assertTrue(FileHandler.readArmyFromFile(filePath) instanceof Army);
     }
-
 }
