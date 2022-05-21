@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 2022-05-19
  * @author martvaag
  */
-class FileHandlerTest {
+public class FileHandlerTest {
 
     public ArrayList<Unit> addUnits(){
         ArrayList<Unit> units = new ArrayList<>();
@@ -32,7 +32,7 @@ class FileHandlerTest {
 
     @Test
     @DisplayName("Write an army to a file")
-    void writeArmyToFile(){
+    public void writeArmyToFile(){
         String filePath = "src/test/java/ntnu/idatt2001/martvaag/tools/filehandling/humanArmyTestFile.csv";
         Army humanArmy = new Army("Human army", addUnits());
         File file = new File(filePath);
@@ -44,7 +44,7 @@ class FileHandlerTest {
 
     @Test
     @DisplayName("Read an army from a file")
-    void readAndCreateArmyFromFile() {
+    public void readAndCreateArmyFromFile() {
         String filePath = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/human-army.csv";
         File file = new File(filePath);
         FileHandler.readArmyFromFile(filePath);

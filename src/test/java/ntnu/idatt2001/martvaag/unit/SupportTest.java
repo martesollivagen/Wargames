@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 2022-05-19
  * @author martvaag
  */
-class SupportTest {
+public class SupportTest {
 
     @Test
     @DisplayName("Support unit heal another unit")
-    void supportUnitAdds50ToRangedUnitsHealth() {
+    public void supportUnitAdds50ToRangedUnitsHealth() {
         Unit healer = new SupportUnit("Healer", 100);
         Unit rangedUnit = new RangedUnit("Attacker", 100);
         healer.heal(rangedUnit);

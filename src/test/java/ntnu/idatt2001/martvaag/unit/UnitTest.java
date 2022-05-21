@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 2022-05-19
  * @author martvaag
  */
-class UnitTest {
+public class UnitTest {
 
     @Test
     @DisplayName("Unit attack another unit, check correct value equals true")
-    void unitAttackAnotherUnitCheckTrueValue() {
+    public void unitAttackAnotherUnitCheckTrueValue() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2,Terrain.HILL);
@@ -24,7 +24,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Unit attack another unit, check wrong value equals false")
-    void unitAttackAnotherUnitCheckForFalseValue(){
+    public void unitAttackAnotherUnitCheckForFalseValue(){
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         unit1.attack(unit2, Terrain.PLAINS);
@@ -33,7 +33,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Set unit health, check correct value equals true")
-    void setUnitHealthTo80IsTrue() {
+    public void setUnitHealthTo80IsTrue() {
         Unit unit = new InfantryUnit("Footman", 100);
         unit.setHealth(80);
         assertEquals(80, unit.getHealth());
@@ -41,7 +41,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Set unit health, check wrong value equals false")
-    void setUnitHealthTo80IsFalse(){
+    public void setUnitHealthTo80IsFalse(){
         Unit unit = new InfantryUnit("Footman", 100);
         unit.setHealth(80);
         assertNotEquals(100, unit.getHealth());
@@ -49,7 +49,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Try create unit with invalid health to check thrown exception")
-    void createUnitWithInvalidHealthToThrowException(){
+    public void createUnitWithInvalidHealthToThrowException(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Unit unit = new InfantryUnit("Footman",-100);
         }, "Unit's health cannot be below 0");
@@ -58,7 +58,7 @@ class UnitTest {
 
     @Test
     @DisplayName("Try create unit with empty name to check thrown exception")
-    void createUnitWithEmptyNameToThrowException(){
+    public void createUnitWithEmptyNameToThrowException(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Unit unit = new InfantryUnit("",100);
         }, "Unit's name cannot be empty");

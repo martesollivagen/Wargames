@@ -15,13 +15,13 @@ import java.util.ArrayList;
  * @version 2022-05-19
  * @author martvaag
  */
-class BattleTest {
+public class BattleTest {
 
     private final static Terrain FOREST = Terrain.FOREST;
 
     @Test
     @DisplayName("Simulate a battle")
-    void simulateBattleBetweenTwoArmies() {
+    public void simulateBattleBetweenTwoArmies() {
 
         ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
@@ -52,7 +52,7 @@ class BattleTest {
 
     @Test
     @DisplayName("Try create battle with null armies")
-    void createBattleWithNullArmiesToCheckThrownException(){
+    public void createBattleWithNullArmiesToCheckThrownException(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Battle battle = new Battle(null, null);
         }, "The armies cannot be null");
@@ -61,7 +61,7 @@ class BattleTest {
 
     @Test
     @DisplayName("Try create battle with invalid terrain")
-    void createBattleWithInvalidTerrainToCheckThrownException(){
+    public void createBattleWithInvalidTerrainToCheckThrownException(){
         ArrayList<Unit> unitsHumanArmy = new ArrayList<>();
 
         unitsHumanArmy.addAll(UnitFactory.createMultipleUnits(500,UnitTypes.INFANTRYUNIT,"Footman",100));

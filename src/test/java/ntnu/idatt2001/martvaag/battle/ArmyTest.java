@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 2022-05-19
  * @author martvaag
  */
-class ArmyTest {
+public class ArmyTest {
 
     //method for a list of units, used in all the tests
     public ArrayList<Unit> addUnits(){
@@ -33,7 +33,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Add a unit to a list")
-    void addUnitToList() {
+    public void addUnitToList() {
         Unit unit = new CavalryUnit("Knight", 100);
         ArrayList<Unit> units = new ArrayList<>();
         assertTrue(units.add(unit));
@@ -41,7 +41,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Add a list of units to another list")
-    void addListOfUnitsToOtherList() {
+    public void addListOfUnitsToOtherList() {
         ArrayList<Unit> units = new ArrayList<>();
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
@@ -55,7 +55,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Remove a unit from a list")
-    void removeUnitFromList() {
+    public void removeUnitFromList() {
         Unit unit = new InfantryUnit("Footman", 100);
         ArrayList<Unit> units = new ArrayList<>();
         units.add(unit);
@@ -64,7 +64,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army contains units")
-    void checkIfArmyHasUnits() {
+    public void checkIfArmyHasUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army humanArmy = new Army("Human army", units);
         Unit unit = new InfantryUnit("Footman", 100);
@@ -74,7 +74,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army does not have any units")
-    void checkIfArmyHasNoUnits() {
+    public void checkIfArmyHasNoUnits() {
         ArrayList<Unit> units = new ArrayList<>();
         Army humanArmy = new Army("Human army", units);
         assertFalse(humanArmy.hasUnits());
@@ -82,7 +82,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Get random unit from army")
-    void getRandomUnitFromArmy() {
+    public void getRandomUnitFromArmy() {
         Unit unit1 = new InfantryUnit("Footman", 100);
         Unit unit2 = new RangedUnit("Archer", 100);
         Unit unit3 = new CavalryUnit("Knight", 100);
@@ -97,7 +97,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army equals another army when they have the same name")
-    void checkIfTwoArmiesAreEqualWhenTheirNamesAreEqual() {
+    public void checkIfTwoArmiesAreEqualWhenTheirNamesAreEqual() {
         Army humanArmy1 = new Army("Human army");
         Army humanArmy2 = new Army("Human army");
         assertEquals(humanArmy1, humanArmy2);
@@ -105,7 +105,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Army does not equal another army if they have different names")
-    void checkIfTwoArmiesAreNotEqualWhenTheirNamesAreDifferent() {
+    public void checkIfTwoArmiesAreNotEqualWhenTheirNamesAreDifferent() {
         Army humanArmy = new Army("Human Army");
         Army orcishHorde = new Army("Orcish Horde");
         assertNotEquals(humanArmy, orcishHorde);
@@ -113,7 +113,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of InfantryUnits")
-    void checkIfAllUnitsInListAreOnlyInfantryUnits(){
+    public void checkIfAllUnitsInListAreOnlyInfantryUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isInfantryUnit = unit -> unit instanceof InfantryUnit;
         boolean check = humanArmy.getInfantryUnits().stream().allMatch(isInfantryUnit);
@@ -123,7 +123,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of CavalryUnits")
-    void checkIfAllUnitsInListAreOnlyCavalryUnitsAndNotCommanderUnits(){
+    public void checkIfAllUnitsInListAreOnlyCavalryUnitsAndNotCommanderUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isCavalryUnit = unit -> unit instanceof CavalryUnit && !(unit instanceof CommanderUnit);
         boolean check = humanArmy.getCavalryUnits().stream().allMatch(isCavalryUnit);
@@ -133,7 +133,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of RangedUnits")
-    void checkIfAllUnitsInListAreOnlyRangedUnits(){
+    public void checkIfAllUnitsInListAreOnlyRangedUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isRangedUnit = unit -> unit instanceof RangedUnit;
         boolean check = humanArmy.getRangedUnits().stream().allMatch(isRangedUnit);
@@ -143,7 +143,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("List of CommanderUnits")
-    void checkIfAllUnitsInListAreOnlyCommanderUnits(){
+    public void checkIfAllUnitsInListAreOnlyCommanderUnits(){
         Army humanArmy = new Army("Human army", addUnits());
         Predicate<Unit> isCommanderUnit = unit -> unit instanceof CommanderUnit;
         boolean check = humanArmy.getCommanderUnits().stream().allMatch(isCommanderUnit);
@@ -153,7 +153,7 @@ class ArmyTest {
 
     @Test
     @DisplayName("Try create army with empty name")
-    void createArmyWithEmptyNameToCheckThrownException(){
+    public void createArmyWithEmptyNameToCheckThrownException(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Army army = new Army("", addUnits());
         }, "Army's name cannot be empty");
