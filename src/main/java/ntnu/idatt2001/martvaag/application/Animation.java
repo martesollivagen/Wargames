@@ -46,22 +46,6 @@ public class Animation implements Observer {
     }
 
     /**
-     * get army one
-     * @return army one
-     */
-    public Army getArmyOne() {
-        return armyOne;
-    }
-
-    /**
-     * get army two
-     * @return army two
-     */
-    public Army getArmyTwo() {
-        return armyTwo;
-    }
-
-    /**
      * get battle
      * @return battle
      */
@@ -75,30 +59,6 @@ public class Animation implements Observer {
      */
     public Terrain getTerrain() {
         return terrain;
-    }
-
-    /**
-     * get list one
-     * @return list one
-     */
-    public ArrayList<Unit> getListOne() {
-        return listOne;
-    }
-
-    /**
-     * get list two
-     * @return list two
-     */
-    public ArrayList<Unit> getListTwo() {
-        return listTwo;
-    }
-
-    /**
-     * get list of order
-     * @return list of order
-     */
-    public ArrayList<Boolean> getOrder() {
-        return order;
     }
 
     /**
