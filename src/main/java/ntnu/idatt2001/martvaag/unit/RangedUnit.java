@@ -4,7 +4,7 @@ import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)
- * @version 2022-04-03
+ * @version 2022-05-22
  * @author martvaag
  */
 public class RangedUnit extends Unit {
@@ -12,11 +12,12 @@ public class RangedUnit extends Unit {
 
     /**
      * constructor for a unit with relevant parameters
-     * @param name a short descriptive name, for example "Archer"
+     *
+     * @param name   a short descriptive name, for example "Archer"
      * @param health a value which indicates the unit´s health, The value reduces when the unit is attacked,
      *               and can never be below 0
      * @param attack an attack-value, which represents the unit´s weapons
-     * @param armor a defence-value, which protects the unit during an attack
+     * @param armor  a defence-value, which protects the unit during an attack
      */
     public RangedUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
@@ -77,6 +78,7 @@ public class RangedUnit extends Unit {
     /**
      * method to heal another unit
      * ranged units cannot heal other and the method is therefore empty
+     *
      * @param unitOne unit one
      * @param unitTwo unit two
      */
