@@ -1,9 +1,8 @@
 module Wargames{
     requires javafx.controls;
     requires javafx.fxml;
-    exports ntnu.idatt2001.martvaag;
+
     exports ntnu.idatt2001.martvaag.unit;
-    opens ntnu.idatt2001.martvaag to javafx.fxml;
     opens ntnu.idatt2001.martvaag.unit to javafx.fxml;
     exports ntnu.idatt2001.martvaag.controllers;
     opens ntnu.idatt2001.martvaag.controllers to javafx.fxml;
@@ -17,4 +16,6 @@ module Wargames{
     opens ntnu.idatt2001.martvaag.tools.factory to javafx.fxml;
     exports ntnu.idatt2001.martvaag.battle;
     opens ntnu.idatt2001.martvaag.battle to javafx.fxml;
+    exports ntnu.idatt2001.martvaag.application;
+    opens ntnu.idatt2001.martvaag.application to javafx.fxml;
 }
