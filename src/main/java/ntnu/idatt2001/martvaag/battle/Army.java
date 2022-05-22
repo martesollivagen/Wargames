@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * class which represent an army consisting of multiple units
- * @version 2022-05-18
+ * @version 2022-05-22
  * @author martvaag
  */
 public class Army {
@@ -28,7 +28,8 @@ public class Army {
 
     /**
      * constructor for army with name and list of units as parameters
-     * @param name name of army
+     *
+     * @param name  name of army
      * @param units list of units
      */
     public Army(String name, ArrayList<Unit> units) {
@@ -78,7 +79,7 @@ public class Army {
     }
 
     /**
-     * checks if list of units contains elements
+     * checks if list of units contains any elements
      * @return {@code true} if list contains elements, {@code false} if list is empty
      */
     public boolean hasUnits(){
@@ -97,15 +98,15 @@ public class Army {
     }
 
     /**
-     * a reasonable textual representation og an army
+     * a reasonable textual representation of an army
      * @return textual representation of an army
      */
     public String toString(){
-        StringBuilder result = new StringBuilder();
+        StringBuilder allUnits = new StringBuilder();
         for(Unit unit : units){
-            result.append("\n").append(unit.toString());
+            allUnits.append("\n").append(unit.toString());
         }
-        return "\n" + '"' + name + '"' + "\n" + result;
+        return '"' + name + '"' + "\n" + allUnits;
     }
 
     /**
@@ -143,7 +144,7 @@ public class Army {
     }
 
     /**
-     * get a list of all cavalry units, except commander units, in the army
+     * get a list of all cavalry units, except those that are commander units, in the army
      * @return list of cavalry units
      */
     public List<Unit> getCavalryUnits(){
