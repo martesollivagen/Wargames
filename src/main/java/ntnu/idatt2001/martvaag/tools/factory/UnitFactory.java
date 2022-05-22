@@ -14,8 +14,8 @@ public class UnitFactory {
     /**
      * create a new unit based on type, name and health
      *
-     * @param type type of unit
-     * @param name name of unit
+     * @param type   type of unit
+     * @param name   name of unit
      * @param health unit's health
      * @return new unit
      */
@@ -41,9 +41,9 @@ public class UnitFactory {
      * create multiple units based on type, name and health
      *
      * @param numberOfUnits number of units wanted to be created
-     * @param type type of unit
-     * @param name name of unit
-     * @param health unit's health
+     * @param type          type of unit
+     * @param name          name of unit
+     * @param health        unit's health
      * @return list of units
      */
     public static ArrayList<Unit> createMultipleUnits(int numberOfUnits, UnitTypes type, String name, int health){
