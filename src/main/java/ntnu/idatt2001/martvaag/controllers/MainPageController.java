@@ -369,11 +369,11 @@ public class MainPageController{
     /**
      * set image and army info for pre-made armies
      *
-     * @param imageView image view
-     * @param image image
-     * @param armyInfo army info
-     * @param filePath pile path
-     * @param viewUnits message to view units
+     * @param imageView        image view
+     * @param image            image
+     * @param armyInfo         army info
+     * @param filePath         pile path
+     * @param viewUnits        message to view units
      * @param confirmationText confirmation text
      */
     public void setArmy(ImageView imageView, Image image, TextArea armyInfo, String filePath, Text viewUnits, Text confirmationText){
@@ -520,6 +520,8 @@ public class MainPageController{
                 armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
                 setArmyOneInfo();
                 armyOneUnits.setText(FileHandler.readArmyFromFile(filePathSelfCreatedArmy).toString());
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#4169E1"));
+                confirmationTextCreateOwnArmy.setText("Your army is now empty");
             }
         } catch (NullPointerException n) {
             confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
@@ -535,7 +537,6 @@ public class MainPageController{
         numberOfUnitsToAdd.setText("");
         nameOfUnit.setText("");
         unitHealthInputField.setText("");
-        //confirmationTextCreateOwnArmy.setText("");
         confirmationTextFileArmyOne.setText("");
     }
 
