@@ -12,6 +12,7 @@ public interface Observer {
 
     /**
      * method for whenever an observed object is changed
+     *
      * @param army army
      * @param unit unit
      */

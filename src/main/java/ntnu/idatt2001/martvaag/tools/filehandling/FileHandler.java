@@ -9,15 +9,17 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * class for fileHandling, includes methods for writing and reading an army from a file
- * @version 2022-05-01
+ * class for fileHandling
+ * includes methods for writing and reading an army from a file
+ * @version 2022-05-22
  * @author martvaag
  */
 public class FileHandler {
 
     /**
      * write an army to a file
-     * writes every unit "type" , "name" , "health"
+     * writes every unit's type, name and health-value, separated by comma on their own line
+     *
      * @param file file
      * @param army army
      */
@@ -35,6 +37,8 @@ public class FileHandler {
 
     /**
      * read an Army from a file
+     * reads army's name from the first line, and every unit's type, name and health-value, separated by comma, and turns it into an army
+     *
      * @param path file path
      * @return Army from file
      */
@@ -49,7 +53,7 @@ public class FileHandler {
                 String [] list = line.split(",");
                 army.add(UnitFactory.createUnit(UnitTypes.valueOf(list[0].trim().toUpperCase()), list[1], Integer.parseInt(list[2])));
             }
-        } catch (IOException e){
+        } catch (IOException | NullPointerException e){
             e.printStackTrace();
         }
         return army;
