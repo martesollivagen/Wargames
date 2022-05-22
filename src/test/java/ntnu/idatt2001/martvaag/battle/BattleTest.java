@@ -53,7 +53,7 @@ public class BattleTest {
     @Test
     @DisplayName("Try create battle with null armies")
     public void createBattleWithNullArmiesToCheckThrownException(){
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
             Battle battle = new Battle(null, null);
         }, "The armies cannot be null");
         assertEquals("The armies cannot be null", thrown.getMessage());
