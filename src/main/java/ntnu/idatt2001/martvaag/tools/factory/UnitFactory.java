@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * class to create new units
- * @version 2022-05-18
+ * @version 2022-05-22
  * @author martvaag
  */
 public class UnitFactory {
@@ -22,7 +22,7 @@ public class UnitFactory {
     public static Unit createUnit(UnitTypes type, String name, int health){
         if (type == null) throw new IllegalArgumentException("Unit type cannot be empty");
         if (name.isEmpty()) throw new IllegalArgumentException("Name can't be empty");
-        if (health < 0) throw new IllegalArgumentException("Health value can't be below 0");
+        if (health <= 0) throw new IllegalArgumentException("Health value can't be below 0");
         if (health > 10000) throw new IllegalArgumentException("Health value cannot be over 10 000");
         switch (type) {
             case INFANTRYUNIT:
@@ -50,7 +50,7 @@ public class UnitFactory {
      * @return list of units
      */
     public static ArrayList<Unit> createMultipleUnits(int numberOfUnits, UnitTypes type, String name, int health){
-        if (numberOfUnits < 0) throw new IllegalArgumentException("Number of units to add cannot be below 0");
+        if (numberOfUnits <= 0) throw new IllegalArgumentException("Number of units to add cannot be below 0");
         if (numberOfUnits > 10000) throw new IllegalArgumentException("You cannot add more than 10 000 units at once");
         ArrayList<Unit> units = new ArrayList<>();
         for (int i = 0; i < numberOfUnits; i++){
