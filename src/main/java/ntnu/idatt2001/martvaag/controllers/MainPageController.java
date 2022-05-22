@@ -121,7 +121,7 @@ public class MainPageController{
      * opens your files and let you choose
      * the file has to be a csv file with the right format in order to be used
      * sets armyOne and filePathArmyOne and displays the army and filepath
-     * if something goes wrong it sets a message to the label for the army
+     * if something goes wrong it sets a message to the error text for the army
      */
     public void downloadArmy1(){
 
@@ -153,7 +153,7 @@ public class MainPageController{
      * opens your files and let you choose
      * the file has to be a csv file with the right format in order to be used
      * sets armyTwo and filePathArmyTwo and displays the army and filepath
-     * if something goes wrong it sets a message to the label for the army
+     * if something goes wrong it sets a message to the error text for the army
      */
     public void downloadArmy2(){
 
@@ -181,20 +181,20 @@ public class MainPageController{
 
     /**
      * sets error message if no file is selected
-     * @param confirmationLabel confirmation label
+     * @param confirmationText confirmation text
      */
-    public void noFileSelected(Text confirmationLabel){
-        confirmationLabel.setFill(Paint.valueOf("#e41212"));
-        confirmationLabel.setText("No file was selected");
+    public void noFileSelected(Text confirmationText){
+        confirmationText.setFill(Paint.valueOf("#e41212"));
+        confirmationText.setText("No file was selected");
     }
 
     /**
      * sets error message for invalid file format
-     * @param confirmationLabel confirmation label
+     * @param confirmationText confirmation text
      */
-    public void invalidFileFormat(Text confirmationLabel){
-        confirmationLabel.setFill(Paint.valueOf("#e41212"));
-        confirmationLabel.setText("This is an invalid file format, you have to use a csv file with the right format");
+    public void invalidFileFormat(Text confirmationText){
+        confirmationText.setFill(Paint.valueOf("#e41212"));
+        confirmationText.setText("This is an invalid file format, you have to use a csv file with the right format");
     }
 
     /**
@@ -374,13 +374,13 @@ public class MainPageController{
      * @param armyInfo army info
      * @param filePath pile path
      * @param viewUnits message to view units
-     * @param confirmationLabel confirmation label
+     * @param confirmationText confirmation text
      */
-    public void setArmy(ImageView imageView, Image image, TextArea armyInfo, String filePath, Text viewUnits, Text confirmationLabel){
+    public void setArmy(ImageView imageView, Image image, TextArea armyInfo, String filePath, Text viewUnits, Text confirmationText){
         imageView.setImage(image);
         armyInfo.setText(FileHandler.readArmyFromFile(filePath).toString());
         viewUnits.setVisible(true);
-        confirmationLabel.setText("");
+        confirmationText.setText("");
     }
 
     /**
@@ -484,11 +484,15 @@ public class MainPageController{
                 FileHandler.writeToFile(fileArmyOne, armyOne);
             }
 
+            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#4169E1"));
+            confirmationTextCreateOwnArmy.setText("Your '" + nameOfUnit.getText().trim() + "' unit(s) where added to your army");
             setArmyOneInfo();
             clearFieldsCreateOwnArmy();
         } catch (NumberFormatException e){
+            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
             confirmationTextCreateOwnArmy.setText("Health and number of units has to be numbers");
         } catch (IllegalArgumentException n){
+            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
             confirmationTextCreateOwnArmy.setText(n.getMessage());
         }
     }
@@ -499,8 +503,10 @@ public class MainPageController{
     public void resetSelfCreatedArmy(){
         try {
             if (!armyOne.getName().equals("Your army")){
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
                 confirmationTextCreateOwnArmy.setText("The army you are trying to empty is not yours");
             } else if (!armyOne.hasUnits()){
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
                 confirmationTextCreateOwnArmy.setText("Your army is already empty");
             } else {
                 clearFieldsCreateOwnArmy();
@@ -516,6 +522,7 @@ public class MainPageController{
                 armyOneUnits.setText(FileHandler.readArmyFromFile(filePathSelfCreatedArmy).toString());
             }
         } catch (NullPointerException n) {
+            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#e41212"));
             confirmationTextCreateOwnArmy.setText("You have not created an army yet");
         }
     }
@@ -528,7 +535,7 @@ public class MainPageController{
         numberOfUnitsToAdd.setText("");
         nameOfUnit.setText("");
         unitHealthInputField.setText("");
-        confirmationTextCreateOwnArmy.setText("");
+        //confirmationTextCreateOwnArmy.setText("");
         confirmationTextFileArmyOne.setText("");
     }
 
