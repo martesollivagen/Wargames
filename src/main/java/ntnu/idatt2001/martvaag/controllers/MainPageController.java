@@ -135,7 +135,7 @@ public class MainPageController{
                 filePathArmyOne = file.getPath();
 
                 armyOneUnits.setText(FileHandler.readArmyFromFile(file.getPath()).toString());
-                confirmationTextFileArmyOne.setFill(Paint.valueOf("#000000"));
+                confirmationTextFileArmyOne.setFill(Paint.valueOf("#0000CD"));
                 confirmationTextFileArmyOne.setText("Selected file for Army 1: " + file.getName());
                 setArmyOneInfo();
                 setViewUnitTextAndImage(viewUnitsArmyOne, imageArmyOne, neutralArmyOneImage);
@@ -167,7 +167,7 @@ public class MainPageController{
                 filePathArmyTwo = file.getPath();
 
                 armyTwoUnits.setText(FileHandler.readArmyFromFile(file.getPath()).toString());
-                confirmationTextFileArmyTwo.setFill(Paint.valueOf("#000000"));
+                confirmationTextFileArmyTwo.setFill(Paint.valueOf("#0000CD"));
                 confirmationTextFileArmyTwo.setText("Selected file for Army 2: " + file.getName());
                 setArmyTwoInfo();
                 setViewUnitTextAndImage(viewUnitsArmyTwo, imageArmyTwo, neutralArmyTwoImage);
@@ -484,7 +484,7 @@ public class MainPageController{
                 FileHandler.writeToFile(fileArmyOne, armyOne);
             }
 
-            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#4169E1"));
+            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
             confirmationTextCreateOwnArmy.setText("Your '" + nameOfUnit.getText().trim() + "' unit(s) where added to your army");
             setArmyOneInfo();
             clearFieldsCreateOwnArmy();
@@ -520,7 +520,7 @@ public class MainPageController{
                 armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
                 setArmyOneInfo();
                 armyOneUnits.setText(FileHandler.readArmyFromFile(filePathSelfCreatedArmy).toString());
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#4169E1"));
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
                 confirmationTextCreateOwnArmy.setText("Your army is now empty");
             }
         } catch (NullPointerException n) {
