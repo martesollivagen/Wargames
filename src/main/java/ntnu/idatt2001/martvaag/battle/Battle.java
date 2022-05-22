@@ -104,7 +104,7 @@ public class Battle extends Subject {
                 armyOne.getRandom().attack(armyTwoUnit, terrain);
                 if (armyTwoUnit.isDead()){
                     if (armyTwoUnit instanceof SupportUnit){
-                        armyTwoUnit.heal(armyTwo.getRandom());
+                        armyTwoUnit.heal(armyTwo.getRandom(), armyTwo.getRandom());
                     }
                     armyTwo.remove(armyTwoUnit);
                     notifyObservers(armyTwo,armyTwoUnit);
@@ -113,7 +113,7 @@ public class Battle extends Subject {
                 armyTwo.getRandom().attack(armyOneUnit, terrain);
                 if (armyOneUnit.isDead()){
                     if (armyOneUnit instanceof SupportUnit){
-                        armyOneUnit.heal(armyOne.getRandom());
+                        armyOneUnit.heal(armyOne.getRandom(), armyOne.getRandom());
                     }
                     armyOne.remove(armyOneUnit);
                     notifyObservers(armyOne,armyOneUnit);
