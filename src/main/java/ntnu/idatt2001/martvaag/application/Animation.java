@@ -1,4 +1,4 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.application;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 
 /**
  * class to create an animation of the battle
- * implements the Observer interface
- * @version 1.0 2022-05-18
+ * implements the Observer interface to create animation
+ * @version 2022-05-22
  * @author martvaag
  */
 public class Animation implements Observer {
@@ -29,9 +29,10 @@ public class Animation implements Observer {
     private final ArrayList<Boolean> order;
 
     /**
-     * constructor with parameters to use in the animation
-     * @param one army one
-     * @param two army two
+     * constructor with parameters to use to create the animation
+     *
+     * @param one     army one
+     * @param two     army two
      * @param terrain terrain
      */
     public Animation(Army one, Army two, Terrain terrain) {
@@ -101,13 +102,13 @@ public class Animation implements Observer {
     }
 
     /**
-     * get the display of all units left in the army
+     * get the display of number of units left in the army
+     *
      * @param army army
-     * @return display of all units left in the army
+     * @return number of units left in the army
      */
     public String getDisplayList(Army army) {
         try {
-
             return "Army : " + army.getName() +
                     "\n\nTotal number of units:        " + army.getUnits().size() +
                     "\nTotal number of InfantryUnits:  " + army.getInfantryUnits().size() +
@@ -138,12 +139,66 @@ public class Animation implements Observer {
     }
 
     /**
+     * updates the observer (this) every time a unit has died and from which army
+     * adds the dead unit to a list; listOne if the unit was from armyOne and listTwo if the unit was from armyTwo
+     * adds a boolean to the order list, to be used in the animation to remove the units from their lists in the same order as it happened in the battle
+     *
+     * @param army army
+     * @param unit unit
+     */
+    @Override
+    public void update(Army army, Unit unit) {
+        if (army.equals(armyOne)) {
+            listOne.add(unit);
+            order.add(true);
+        } else {
+            listTwo.add(unit);
+            order.add(false);
+        }
+    }
+
+    /**
+     * remove a unit from a list
+     * checks the type of unit and removes the first unit that matches this in the army
+     * removes the unit from list and removes a boolean from the order list, since these are now used
+     *
+     * @param army        army
+     * @param listOfUnits list of units
+     */
+    public void remove(Army army, List<Unit> listOfUnits) {
+        Unit unit = listOfUnits.get(0);
+
+        switch (unit.getClass().getSimpleName()){
+            case "InfantryUnit" :
+                army.remove(army.getInfantryUnits().stream().findFirst().get());
+                break;
+            case "RangedUnit" :
+                army.remove(army.getRangedUnits().stream().findFirst().get());
+                break;
+            case "CavalryUnit" :
+                army.remove(army.getCavalryUnits().stream().findFirst().get());
+                break;
+            case "CommanderUnit" :
+                army.remove(army.getCommanderUnits().stream().findFirst().get());
+                break;
+            case "SupportUnit" :
+                army.remove(army.getSupportUnits().stream().findFirst().get());
+                break;
+            default:
+        }
+        listOfUnits.remove(0);
+        order.remove(0);
+    }
+
+    /**
      * method that creates animation of the battle
-     * removes units from each list and using the order list to know which army to remove a unit from
+     * starts with simulating a battle between the two armies
+     * removes units from each list and using the order list to know which army to remove a unit from, as in the simulation
      * while the animation runs, it uses the getDisplayList method to show number of units left
      * uses the tread.sleep method to run the animation in a reasonable tempo to be able to see all the units being removed
-     * @param textAreaArmyOne textArea for army one where animation is displayed
-     * @param textAreaArmyTwo textArea for army two where animation is displayed
+     *
+     * @param textAreaArmyOne       textArea for army one where animation is displayed
+     * @param textAreaArmyTwo       textArea for army two where animation is displayed
      * @throws InterruptedException interrupted exception
      */
     public void createAnimation(TextArea textAreaArmyOne, TextArea textAreaArmyTwo) throws InterruptedException {
@@ -167,58 +222,10 @@ public class Animation implements Observer {
     }
 
     /**
-     * remove a unit from a list
-     * checks which type of unit and removes the first unit that matches this in the army
-     * removes the unit from list of units and removes a boolean from the order list
-     * @param army army
-     * @param listOfUnits list of units
-     */
-    public void remove(Army army, List<Unit> listOfUnits) {
-        Unit unit = listOfUnits.get(0);
-
-        switch (unit.getClass().getSimpleName()){
-            case "InfantryUnit" :
-                army.remove(army.getInfantryUnits().stream().findFirst().get());
-                break;
-            case "RangedUnit" :
-                army.remove(army.getRangedUnits().stream().findFirst().get());
-                break;
-            case "CavalryUnit" :
-                army.remove(army.getCavalryUnits().stream().findFirst().get());
-                break;
-            case "CommanderUnit" :
-                army.remove(army.getCommanderUnits().stream().findFirst().get());
-                break;
-            case "Support" :
-                army.remove(army.getSupportUnits().stream().findFirst().get());
-                break;
-            default:
-
-        }
-        listOfUnits.remove(0);
-        order.remove(0);
-    }
-
-    /**
-     * updates the observer (this) every time a unit has died
-     * adds the dead unit to a list; listOne if the unit was from armyOne and listTwo if the unit was from armyTwo
-     * adds a boolean to the order list, to be used in the animation to remove the units from their lists in the same order as it happened in the battle
-     * @param army army
-     * @param unit unit
-     */
-    @Override
-    public void update(Army army, Unit unit) {
-        if (army.equals(armyOne)) {
-            listOne.add(unit);
-            order.add(true);
-        } else {
-            listTwo.add(unit);
-            order.add(false);
-        }
-    }
-
-    /**
-     * create a copy of the army to use in the simulation
+     * create a copy of the armies to use in the simulation
+     * this so a simulation can be done with the same armies, but the original ones will not be affected
+     * after the simulation, we can then still remove units and create an animation from the original ones
+     *
      * @param army army
      * @return copy of army
      */
