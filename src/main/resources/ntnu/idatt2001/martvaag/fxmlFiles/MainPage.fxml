@@ -13,17 +13,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controllers.CreateArmyController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controllers.MainPageController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;">
          <children>
-            <Button layoutX="39.0" layoutY="646.0" mnemonicParsing="false" onAction="#closeApplication" text="Quit application" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="646.0">
+            <Button layoutX="39.0" layoutY="646.0" mnemonicParsing="false" onAction="#closeApplication" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Quit application" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="646.0">
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <TextArea fx:id="army1Units" editable="false" layoutX="284.0" layoutY="178.0" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="97.0" prefWidth="273.0" AnchorPane.leftAnchor="284.0" />
-            <TextArea fx:id="army2Units" editable="false" layoutX="559.0" layoutY="178.0" onMouseEntered="#mouseEntered2" onMouseExited="#mouseExited2" prefHeight="96.0" prefWidth="273.0" AnchorPane.leftAnchor="559.0" />
-            <Button fx:id="simulateBattleButton" layoutX="460.0" layoutY="145.0" mnemonicParsing="false" onAction="#fight" style="-fx-background-color: forestgreen; -fx-border-color: black; -fx-text-fill: black;" text="Simulate battle" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0">
+            <Button fx:id="simulateBattleButton" layoutX="460.0" layoutY="158.0" mnemonicParsing="false" onAction="#fight" style="-fx-background-color: forestgreen; -fx-border-color: black; -fx-text-fill: black;" text="Simulate battle" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Button>
@@ -31,22 +29,22 @@
                <font>
                   <Font size="19.0" />
                </font></TextArea>
-            <TextArea fx:id="army1Info" editable="false" layoutX="34.0" layoutY="44.0" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="182.0" prefWidth="346.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="40.0">
+            <TextArea fx:id="armyOneInfo" editable="false" layoutX="34.0" layoutY="44.0" onMouseEntered="#showUnitsArmyOne" onMouseExited="#removeUnitsArmyOne" prefHeight="182.0" prefWidth="346.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font size="19.0" />
                </font></TextArea>
-            <TextArea fx:id="army2Info" editable="false" layoutX="698.0" layoutY="46.0" onMouseEntered="#mouseEntered2" onMouseExited="#mouseExited2" prefHeight="162.0" prefWidth="272.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+            <TextArea fx:id="armyTwoInfo" editable="false" layoutX="698.0" layoutY="46.0" onMouseEntered="#showUnitsArmyTwo" onMouseExited="#removeUnitsArmyTwo" prefHeight="162.0" prefWidth="272.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font size="19.0" />
                </font></TextArea>
-            <Button fx:id="resetButton" layoutX="491.0" layoutY="646.0" mnemonicParsing="false" onAction="#resetArmy" text="Reset armies" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="491.0" AnchorPane.topAnchor="646.0">
+            <Button fx:id="resetArmiesButton" layoutX="491.0" layoutY="646.0" mnemonicParsing="false" onAction="#resetArmies" text="Reset armies" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="491.0" AnchorPane.topAnchor="646.0">
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <ChoiceBox fx:id="terrainChoiceBox" layoutX="484.0" layoutY="98.0" prefHeight="26.0" prefWidth="122.0" />
-            <Label layoutX="505.0" layoutY="72.0" text="Choose terrain" />
-            <ImageView fx:id="imageArmy1" fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="275.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="275.0" />
-            <ImageView fx:id="imageArmy2" fitHeight="150.0" fitWidth="200.0" layoutX="540.0" layoutY="264.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="275.0" />
+            <ChoiceBox fx:id="terrainChoiceBox" layoutX="484.0" layoutY="113.0" prefHeight="26.0" prefWidth="122.0" />
+            <Label layoutX="505.0" layoutY="92.0" text="Choose terrain" />
+            <ImageView fx:id="imageArmyOne" fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="275.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="275.0" />
+            <ImageView fx:id="imageArmyTwo" fitHeight="150.0" fitWidth="200.0" layoutX="540.0" layoutY="264.0" pickOnBounds="true" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="275.0" />
             <Label fx:id="vsLabel" layoutX="466.0" layoutY="336.0" text="VS" textAlignment="CENTER" AnchorPane.leftAnchor="535.0" AnchorPane.rightAnchor="535.0">
                <font>
                   <Font size="24.0" />
@@ -59,10 +57,9 @@
                </font></Text>
             <AnchorPane fx:id="createOwnArmy" layoutX="40.0" layoutY="279.0" prefHeight="358.0" prefWidth="279.0" style="-fx-border-color: grey;">
                <children>
-                  <ChoiceBox fx:id="unitType" layoutX="121.0" layoutY="55.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="numberOfUnitsToAddChoiceBox" layoutX="118.0" layoutY="177.0" prefWidth="150.0" />
-                  <TextField fx:id="addUnitArmy1" layoutX="120.0" layoutY="134.0" prefHeight="26.0" prefWidth="148.0" promptText="Name of unit" />
-                  <Button layoutX="59.0" layoutY="244.0" mnemonicParsing="false" onAction="#createArmy1" text="Add unit(s) to your army">
+                  <ChoiceBox fx:id="unitType" layoutX="120.0" layoutY="57.0" prefHeight="26.0" prefWidth="146.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="9.0" />
+                  <TextField fx:id="nameOfUnit" layoutX="121.0" layoutY="139.0" prefHeight="26.0" prefWidth="148.0" promptText="Name of unit" />
+                  <Button layoutX="59.0" layoutY="244.0" mnemonicParsing="false" onAction="#createArmyForArmyOne" text="Add unit(s) to your army">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -70,21 +67,23 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button layoutX="61.0" layoutY="325.0" mnemonicParsing="false" onAction="#resetArmies" text="Empty your army" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" />
+                  <Button layoutX="61.0" layoutY="325.0" mnemonicParsing="false" onAction="#resetSelfCreatedArmy" text="Empty your army" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" />
                   <Label fx:id="unitTypeLabel" layoutX="5.0" layoutY="59.0" prefHeight="19.0" prefWidth="215.0" text="Select your unit type" />
                   <Text layoutX="60.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create you own army!">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="createArmyConfirmationLabel" fill="#e41212" layoutX="71.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="143.0" />
-                  <Label layoutX="9.0" layoutY="97.0" text="Select unit's health" />
-                  <Label layoutX="3.0" layoutY="182.0" text="Add number of units" />
-                  <TextField fx:id="unitHealthInputField" layoutX="121.0" layoutY="93.0" prefHeight="26.0" prefWidth="148.0" promptText="Unit's health" />
+                  <Text fx:id="confirmationTextCreateOwnArmy" fill="#e41212" layoutX="71.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="143.0" />
+                  <Label layoutX="4.0" layoutY="104.0" text="Select unit's health" />
+                  <Label layoutX="3.0" layoutY="184.0" text="Add number of units" />
+                  <TextField fx:id="unitHealthInputField" layoutX="121.0" layoutY="99.0" prefHeight="26.0" prefWidth="148.0" promptText="Unit's health" />
+                  <TextField fx:id="numberOfUnitsToAdd" layoutX="121.0" layoutY="179.0" prefHeight="26.0" prefWidth="148.0" promptText="Number of units" />
+                  <Label layoutX="4.0" layoutY="144.0" text="Select unit's name" />
                </children>
             </AnchorPane>
-            <Text fx:id="resetArmyConfirmation" fill="#e41212" layoutX="621.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0" />
-            <Text fx:id="confirmationTextBattle" fill="#e41212" layoutX="460.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="180.0" />
+            <Text fx:id="confirmationTextResetArmies" fill="#e41212" layoutX="621.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0" />
+            <Text fx:id="confirmationTextSimulateBattle" fill="#e41212" layoutX="460.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="180.0" />
             <Text fx:id="viewUnitsArmyOne" layoutX="99.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View all unit information by hovering over this field^" visible="false">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -97,7 +96,7 @@
             </Text>
             <AnchorPane fx:id="downloadOrChoose" layoutX="790.0" layoutY="278.0" prefHeight="358.0" prefWidth="277.0" style="-fx-border-color: grey;">
                <children>
-                  <MenuButton fx:id="chooseArmy2Button" layoutX="37.0" layoutY="291.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Choose army for army 2">
+                  <MenuButton fx:id="chooseArmyTwoButton" layoutX="37.0" layoutY="291.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Choose army for army 2">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#humanArmy2" text="Human Army" />
                         <MenuItem mnemonicParsing="false" onAction="#orcishHorde2" text="Orcish Horde Army" />
@@ -108,7 +107,7 @@
                         <Font size="16.0" />
                      </font>
                   </MenuButton>
-                  <MenuButton fx:id="chooseArmy1Button" layoutX="37.0" layoutY="243.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Choose army for army 1">
+                  <MenuButton fx:id="chooseArmyOneButton" layoutX="37.0" layoutY="243.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="Choose army for army 1">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#humanArmy1" text="Human Army" />
                         <MenuItem mnemonicParsing="false" onAction="#orcishHorde1" text="Orcish Horde Army" />
@@ -133,8 +132,8 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="confirmationLabelFile1" layoutX="40.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.21630859375" />
-                  <Text fx:id="confirmationLabelFile2" layoutX="39.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.21630859375" />
+                  <Text fx:id="confirmationTextFileArmyOne" layoutX="40.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.21630859375" />
+                  <Text fx:id="confirmationTextFileArmyTwo" layoutX="39.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.21630859375" />
                   <Text layoutX="26.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose from pre-made armies!">
                      <font>
                         <Font size="18.0" />
@@ -142,7 +141,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Button fx:id="questionmarkbutton" layoutX="189.0" layoutY="646.0" mnemonicParsing="false" onAction="#question" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="23.0" AnchorPane.topAnchor="646.0">
+            <Button fx:id="instructionsButton" layoutX="481.0" layoutY="25.0" mnemonicParsing="false" onAction="#question" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="644.0" AnchorPane.topAnchor="25.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -154,6 +153,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <TextArea fx:id="armyOneUnits" editable="false" layoutX="254.0" layoutY="194.0" onMouseEntered="#showUnitsArmyOne" onMouseExited="#removeUnitsArmyOne" prefHeight="97.0" prefWidth="273.0" visible="false" AnchorPane.leftAnchor="254.0" />
+            <TextArea fx:id="armyTwoUnits" editable="false" layoutX="582.0" layoutY="194.0" onMouseEntered="#showUnitsArmyTwo" onMouseExited="#removeUnitsArmyTwo" prefHeight="96.0" prefWidth="273.0" visible="false" AnchorPane.leftAnchor="582.0" />
+            <Text layoutX="533.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions" />
+            <Text layoutX="208.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army 1" />
+            <Text layoutX="851.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army 2" />
          </children>
       </AnchorPane>
    </children>
