@@ -7,17 +7,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * class containing tests for SupportUnit class
- * @version 2022-05-19
+ * @version 2022-05-22
  * @author martvaag
  */
 public class SupportTest {
 
     @Test
-    @DisplayName("Support unit heal another unit")
-    public void supportUnitAdds50ToRangedUnitsHealth() {
+    @DisplayName("Support unit heal units")
+    public void supportUnitAdds100ToTwoUnitsHealth() {
         Unit healer = new SupportUnit("Healer", 100);
         Unit rangedUnit = new RangedUnit("Attacker", 100);
-        healer.heal(rangedUnit);
-        assertEquals(150,rangedUnit.getHealth());
+        Unit infantryUnit = new InfantryUnit("Attacker", 100);
+        healer.heal(rangedUnit, infantryUnit);
+        assertEquals(200,rangedUnit.getHealth());
+        assertEquals(200, infantryUnit.getHealth());
     }
 }
