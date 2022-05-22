@@ -1,4 +1,4 @@
-package ntnu.idatt2001.martvaag;
+package ntnu.idatt2001.martvaag.application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,13 +10,14 @@ import java.util.Objects;
 
 /**
  * main class that extends Application
- * used to start and open the application
- * @version 2022-05-18
+ * used to open the front page of the application
+ * @version 2022-05-22
  * @author martvaag
  */
 public class WargamesApplication extends Application {
+
     /**
-     * method to start the application which opens the front page
+     * method to open the front page of the application
      * @param primaryStage primary stage
      * @throws Exception exception
      */
@@ -31,7 +32,7 @@ public class WargamesApplication extends Application {
 
     /**
      * main-method
-     * @param args Srgs
+     * @param args Args
      */
     public static void main(String[] args) {
         launch(args);
