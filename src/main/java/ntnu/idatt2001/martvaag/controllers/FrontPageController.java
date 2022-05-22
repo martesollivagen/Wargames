@@ -12,18 +12,18 @@ import java.util.Objects;
 
 /**
  * controller for the front page of the application
- * @version 1.0 2022-05-18
+ * @version 2022-05-22
  * @author martvaag
  */
 public class FrontPageController {
 
     /**
-     * opens the next page of the application
+     * opens the next page (main page) of the application
      * @param event event
      * @throws IOException IOException
      */
     public void createAnArmy(ActionEvent event) throws IOException {
-        String createArmyFilePath = "/ntnu/idatt2001/martvaag/fxmlFiles/CreateArmy.fxml";
+        String createArmyFilePath = "/ntnu/idatt2001/martvaag/fxmlFiles/MainPage.fxml";
         Parent tableViewParent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(createArmyFilePath)));
         Scene tableViewScene = new Scene(tableViewParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
