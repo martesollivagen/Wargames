@@ -24,7 +24,7 @@ public class Battle extends Subject {
      * @param armyTwo Army two
      */
     public Battle(Army armyOne, Army armyTwo) {
-        if (armyOne == null || armyTwo == null) throw new IllegalArgumentException("The armies cannot be null");
+        if (armyOne == null || armyTwo == null) throw new NullPointerException("The armies cannot be null");
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
@@ -70,7 +70,8 @@ public class Battle extends Subject {
      */
     public Army simulate(Terrain terrain){
         terrainOfBattle = terrain;
-        if (terrain == null) throw new IllegalArgumentException("Invalid terrain");
+        if (terrain == null) throw new NullPointerException("Invalid terrain");
+        if (!armyOne.hasUnits() || !armyTwo.hasUnits()) throw new IllegalArgumentException("You cannot simulate battle if one army does not have any units");
         switch (terrain) {
             case HILL:
             case FOREST:

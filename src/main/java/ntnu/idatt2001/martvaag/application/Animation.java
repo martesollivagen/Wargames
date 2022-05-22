@@ -31,15 +31,19 @@ public class Animation implements Observer {
     /**
      * constructor with parameters to use to create the animation
      *
-     * @param one     army one
-     * @param two     army two
+     * @param armyOne army armyOne
+     * @param armyTwo army armyTwo
      * @param terrain terrain
      */
-    public Animation(Army one, Army two, Terrain terrain) {
-        this.armyOne = new Army(one.getName(), new ArrayList<>(one.getUnits().stream().map(UnitFactory::createUnitCopy).collect(Collectors.toList())));
-        this.armyTwo = new Army(two.getName(), new ArrayList<>(two.getUnits().stream().map(UnitFactory::createUnitCopy).collect(Collectors.toList())));
+    public Animation(Army armyOne, Army armyTwo, Terrain terrain) {
+        if (armyOne == null || armyTwo == null) throw new NullPointerException("Army one and army two cannot be empty");
+        if (terrain == null) throw new NullPointerException("You cannot simulate a battle without terrain");
+        if (armyOne.equals(armyTwo)) throw new IllegalArgumentException("You cannot have a battle between to equal armies");
+        if (!armyOne.hasUnits() || !armyTwo.hasUnits()) throw new IllegalArgumentException("You cannot simulate battle if one army does not have any units");
+        this.armyOne = new Army(armyOne.getName(), new ArrayList<>(armyOne.getUnits().stream().map(UnitFactory::createUnitCopy).collect(Collectors.toList())));
+        this.armyTwo = new Army(armyTwo.getName(), new ArrayList<>(armyTwo.getUnits().stream().map(UnitFactory::createUnitCopy).collect(Collectors.toList())));
         this.terrain = terrain;
-        this.battle = new Battle(createArmyCopy(armyOne), createArmyCopy(armyTwo));
+        this.battle = new Battle(createArmyCopy(this.armyOne), createArmyCopy(this.armyTwo));
         order = new ArrayList<>();
         listOne = new ArrayList<>();
         listTwo = new ArrayList<>();
