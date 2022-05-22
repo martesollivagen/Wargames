@@ -32,15 +32,6 @@ public class SupportUnit extends Unit{
     }
 
     /**
-     * adds 50 to another unit's health when the support unit dies in battle
-     * @param unit unit
-     */
-    @Override
-    public void heal(Unit unit){
-        unit.setHealth(unit.getHealth() + 50);
-    }
-
-    /**
      * bonus added for attack
      * @param terrain terrain
      * @return 0
@@ -58,5 +49,17 @@ public class SupportUnit extends Unit{
     @Override
     public int getResistBonus(Terrain terrain) {
         return 0;
+    }
+
+    /**
+     * heal two other units, adds 100 to their health value
+     *
+     * @param unitOne unit one
+     * @param unitTwo unit two
+     */
+    @Override
+    public void heal(Unit unitOne, Unit unitTwo) {
+        unitOne.setHealth(unitOne.getHealth() + 100);
+        unitTwo.setHealth(unitTwo.getHealth() + 100);
     }
 }

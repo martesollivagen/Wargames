@@ -75,12 +75,13 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * method to heal other units
-     * this unit cannot heal and the method is therefore empty
-     * @param unit unit
+     * method to heal another unit
+     * ranged units cannot heal other and the method is therefore empty
+     * @param unitOne unit one
+     * @param unitTwo unit two
      */
     @Override
-    public void heal(Unit unit) {
+    public void heal(Unit unitOne, Unit unitTwo) {
 
     }
 }
