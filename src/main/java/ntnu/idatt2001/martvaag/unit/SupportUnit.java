@@ -5,6 +5,7 @@ import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 /**
  * class which represent a unit with the purpose of healing other units
  * the support units can heal other units when they die in battle
+ * the support unit itself has low attack and armor
  * @version 2022-05-22
  * @author martvaag
  */
