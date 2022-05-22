@@ -4,7 +4,7 @@ import ntnu.idatt2001.martvaag.tools.enums.Terrain;
 
 /**
  * abstract class which represent a unit
- * @version 2022-05-18
+ * @version 2022-05-22
  * @author martvaag
  */
 public abstract class Unit{
@@ -13,11 +13,12 @@ public abstract class Unit{
 
     /**
      * constructor for a unit with relevant parameters
-     * @param name a short descriptive name, for example "Swordsman" or "Archer"
+     *
+     * @param name   a short descriptive name, for example "Swordsman" or "Archer"
      * @param health a value which indicates the unit´s health, The value reduces when the unit is attacked,
      *               and can never be below 0
      * @param attack an attack-value, which represents the unit´s weapons
-     * @param armor a defence-value, which protects the unit during an attack
+     * @param armor  a defence-value, which protects the unit during an attack
      */
     public Unit(String name, int health, int attack, int armor) {
         if (health<0) throw new IllegalArgumentException("Unit's health cannot be below 0");
@@ -31,8 +32,10 @@ public abstract class Unit{
 
     /**
      * attack which hurts the opponent
-     * the result of the method will be the opponent´s health after the attack
+     * the result of the method will be the opponent's health after the attack
+     *
      * @param opponent a unit "opponent"
+     * @param terrain  terrain
      */
     public void attack(Unit opponent, Terrain terrain){
         opponent.health = opponent.health - (this.attack + this.getAttackBonus(terrain)) + (opponent.armor + opponent.getResistBonus(terrain));
@@ -89,21 +92,25 @@ public abstract class Unit{
 
     /**
      * gives bonus when a unit attacks, which gets added to the attack-value
+     * @param terrain terrain
      * @return attack-bonus
      */
     public abstract int getAttackBonus(Terrain terrain);
 
     /**
      * gives bonus when a unit defends itself, which gets added to the defence-value
+     * @param terrain terrain
      * @return defence-value
      */
     public abstract int getResistBonus(Terrain terrain);
 
     /**
-     * heals another unit
-     * @param unit unit
+     * adds health value to another unit
+     *
+     * @param unitOne unit one
+     * @param unitTwo unit two
      */
-    public abstract void heal(Unit unit);
+    public abstract void heal(Unit unitOne, Unit unitTwo);
 
     /**
      * get a reasonable textual representation of a unit
