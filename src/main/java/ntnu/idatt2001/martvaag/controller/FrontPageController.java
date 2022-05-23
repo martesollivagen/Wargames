@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * controller for the front page of the animation
+ * controller for the front page of the application
  * @version 2022-05-22
  * @author martvaag
  */
 public class FrontPageController {
 
     /**
-     * opens the next page (main page) of the animation
+     * opens the next page (main page) of the application
      * @param event event
      * @throws IOException IOException
      */

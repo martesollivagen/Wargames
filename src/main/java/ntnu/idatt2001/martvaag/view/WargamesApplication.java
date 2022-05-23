@@ -10,14 +10,14 @@ import java.util.Objects;
 
 /**
  * main class that extends Application
- * used to open the front page of the animation
+ * used to open the front page of the application
  * @version 2022-05-22
  * @author martvaag
  */
 public class WargamesApplication extends Application {
 
     /**
-     * method to open the front page of the animation
+     * method to open the front page of the application
      * @param primaryStage primary stage
      * @throws Exception exception
      */

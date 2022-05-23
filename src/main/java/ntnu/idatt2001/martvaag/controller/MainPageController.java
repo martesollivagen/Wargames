@@ -21,7 +21,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * controller for the main page of the animation
+ * controller for the main page of the application
  * @version 2022-05-22
  * @author martvaag
  */
@@ -106,7 +106,7 @@ public class MainPageController{
     /**
      * resets the self created army
      * ends the code
-     * close the animation
+     * close the application
      */
     public void closeApplication(){
         resetSelfCreatedArmy();
