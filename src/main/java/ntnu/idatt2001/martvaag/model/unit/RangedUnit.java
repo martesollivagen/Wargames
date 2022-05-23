@@ -4,7 +4,10 @@ import ntnu.idatt2001.martvaag.model.tools.enums.Terrain;
 
 /**
  * class which represent a unit which specialises in range (angrep fra avstand)
- * @version 2022-05-22
+ * ranged units have an extra advantage in the terrain hill when attacking, but a disadvantage in the terrain forest
+ * the terrain does not affect the resist bonus
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class RangedUnit extends Unit {
@@ -25,7 +28,7 @@ public class RangedUnit extends Unit {
 
     /**
      * simplified constructor with attack = 15 and armor = 8
-     * @param name name of unit
+     * @param name   name of unit
      * @param health health-value of unit
      */
     public RangedUnit(String name, int health){
@@ -33,28 +36,35 @@ public class RangedUnit extends Unit {
     }
 
     /**
-     * bonus added for range-attack
-     * @return bonus = 3
+     * bonus added for range-attack, and this value is affected by the terrain
+     * bonus is 4 if terrain is hill
+     * bonus is 3 if terrain is plains
+     * bonus is 2 if terrain is forest
+     *
+     * @param terrain terrain
+     * @return 4,3 or 2, depending on the terrain
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
         switch (terrain) {
             case HILL:
                 return 4;
-            case FOREST:
-                return 2;
             case PLAINS:
                 return 3;
+            case FOREST:
+                return 2;
             default:
                 return 0;
         }
     }
 
     /**
-     * bonus added for defence based on the distance from the field
-     * when attacked the first time - return 6
-     * when attacked the second time - return 4
-     * from the third attack and so on - return 2
+     * bonus added for defence based on the distance from the field, and this value is not affected by the terrain
+     * bonus is 6 for the first attack
+     * bonus is 4 for the second attack
+     * bonus is 2 for the rest of the attacks
+     *
+     * @param terrain terrain
      * @return 6, 4 og 2, depending on the number of attacks
      */
     @Override

@@ -4,7 +4,9 @@ import ntnu.idatt2001.martvaag.model.tools.enums.Terrain;
 
 /**
  * class which represent a unit which specialises in melee (nærkamp)
- * @version 2022-05-22
+ * infantry units have an extra advantage in the terrain forest, both in attack and defence
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class InfantryUnit extends Unit {
@@ -25,7 +27,7 @@ public class InfantryUnit extends Unit {
     /**
      * simplified constructor with attack = 15 and armor = 10
      *
-     * @param name name of unit
+     * @param name   name of unit
      * @param health health-value of unit
      */
     public InfantryUnit(String name, int health){
@@ -33,8 +35,12 @@ public class InfantryUnit extends Unit {
     }
 
     /**
-     * bonus added for melee-attack
-     * @return bonus = 2
+     * bonus added for melee-attack, and this value is affected by the terrain
+     * bonus is 3 if terrain is forrest
+     * bonus is 2 if terrain is hill or plains
+     *
+     * @param terrain terrain
+     * @return 3 or 2, depending on the terrain
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
@@ -50,8 +56,12 @@ public class InfantryUnit extends Unit {
     }
 
     /**
-     * bonus added for defence
-     * @return bonus = 1
+     * bonus added for defence, and this value is affected by the terrain
+     * bonus is 2 if terrain is forest
+     * bonus is 1 if terrain is hill or plains
+     *
+     * @param terrain terrain
+     * @return 2 or 1, depending on the terrain
      */
     @Override
     public int getResistBonus(Terrain terrain) {

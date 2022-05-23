@@ -17,7 +17,8 @@ import java.util.stream.Collectors;
 /**
  * class to create an animation of the battle
  * implements the Observer interface to create animation
- * @version 2022-05-22
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class Animation implements Observer {
@@ -156,10 +157,10 @@ public class Animation implements Observer {
 
     /**
      * method that creates animation of the battle
-     * starts with simulating a battle between the two armies
+     * starts with simulating a battle between the two armies with the {@link #simulate()} method
      * removes units from each list and using the order list to know which army to remove a unit from, as in the simulation
-     * while the animation runs, it uses the getDisplayList method to show number of units left
-     * uses the tread.sleep method to run the animation in a reasonable tempo to be able to see all the units being removed
+     * while the animation runs, it uses the {@link #getDisplayList(Army)} method to show number of units left
+     * uses tread.sleep to run the animation in a reasonable tempo to be able to see all the units being removed
      *
      * @param textAreaArmyOne       textArea for army one where animation is displayed
      * @param textAreaArmyTwo       textArea for army two where animation is displayed

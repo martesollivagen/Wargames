@@ -5,7 +5,8 @@ import ntnu.idatt2001.martvaag.model.unit.Unit;
 
 /**
  * interface to use to get informed of changes that has happened in an observable objects
- * @version 1.0 2022-05-18
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public interface Observer {

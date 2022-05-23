@@ -8,7 +8,7 @@ package ntnu.idatt2001.martvaag.view;
 public class Main {
 
     /**
-     * main-method that uses the WargamesApplication class to open the application
+     * main-method that uses the {@link ntnu.idatt2001.martvaag.view.WargamesApplication class} to open the application
      * @param args Args
      */
     public static void main(String[] args) {

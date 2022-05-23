@@ -2,6 +2,7 @@ package ntnu.idatt2001.martvaag.model.unit;
 
 /**
  * class which represent a stronger version of a CavalryUnit
+ *
  * @version 2022-05-22
  * @author martvaag
  */
@@ -22,7 +23,7 @@ public class CommanderUnit extends CavalryUnit {
     /**
      * simplified constructor, stronger version of CavalryUnit, with attack = 25 and armor = 15
      *
-     * @param name name og unit
+     * @param name   name og unit
      * @param health health-value of unit
      */
     public CommanderUnit(String name, int health){

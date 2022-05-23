@@ -31,7 +31,7 @@ public class WargamesApplication extends Application {
     }
 
     /**
-     * main-method
+     * main-method to initiate the {@link #start(Stage)} method
      * @param args Args
      */
     public static void main(String[] args) {

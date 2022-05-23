@@ -5,8 +5,10 @@ import ntnu.idatt2001.martvaag.model.tools.enums.Terrain;
 /**
  * class which represent a unit with the purpose of healing other units
  * the support units can heal other units when they die in battle
- * the support unit itself has low attack and armor
- * @version 2022-05-22
+ * the support unit itself has low attack, armor, attack bonus and resist bonus
+ * the terrain does not affect the support unit, they are equal in every terrain
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class SupportUnit extends Unit{
@@ -27,7 +29,7 @@ public class SupportUnit extends Unit{
     /**
      * simplified constructor with attack = 5 and armor = 5
      *
-     * @param name name of unit
+     * @param name   name of unit
      * @param health health-value of unit
      */
     public SupportUnit(String name, int health){
@@ -36,22 +38,24 @@ public class SupportUnit extends Unit{
 
     /**
      * bonus added for attack
+     *
      * @param terrain terrain
-     * @return 0
+     * @return 1
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
-        return 0;
+        return 1;
     }
 
     /**
      * bonus added for resist
+     *
      * @param terrain terrain
-     * @return 0
+     * @return 1
      */
     @Override
     public int getResistBonus(Terrain terrain) {
-        return 0;
+        return 1;
     }
 
     /**

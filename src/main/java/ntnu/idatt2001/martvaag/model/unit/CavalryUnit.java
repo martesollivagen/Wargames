@@ -5,7 +5,9 @@ import ntnu.idatt2001.martvaag.model.tools.enums.Terrain;
 /**
  * class which represent a unit which specialises in melee (nærkamp),
  * and is strong in their first attack (charge)
- * @version 2022-05-22
+ * cavalry units have an extra advantage for attack in the terrain plains, and a disadvantage in resist in the terrain forest
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class CavalryUnit extends Unit {
@@ -27,7 +29,7 @@ public class CavalryUnit extends Unit {
     /**
      * simplified constructor with attack = 20 and armor = 12
      *
-     * @param name name of unit
+     * @param name   name of unit
      * @param health health-value of unit
      */
     public CavalryUnit(String name, int health){
@@ -35,8 +37,12 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * bonus added for attack
-     * @return 4+2 for the first attack, then 2 for the rest
+     * bonus added for attack, and this value is affected by the terrain
+     * bonus is 7 for the first attack and 3 for the rest if the terrain is plains
+     * bonus is 6 for the first attack and 2 for the rest if the terrain is forest or plains
+     *
+     * @param terrain terrain
+     * @return 7,6,3 or 2, depending on the terrain and number of attacks
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
@@ -58,8 +64,12 @@ public class CavalryUnit extends Unit {
     }
 
     /**
-     * bonus added for defence, but small advantage when attacked in melee
-     * @return bonus = 1
+     * bonus added for defence, and this value is affected by the terrain
+     * bonus is 1 if the terrain is hill or plains
+     * bonus is 0 if the terrain is forest
+     *
+     * @param terrain terrain
+     * @return 1 or 0, depending on the terrain
      */
     @Override
     public int getResistBonus(Terrain terrain) {

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 /**
  * class for fileHandling
  * includes methods for writing and reading an army from a file
- * @version 2022-05-22
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class FileHandler {

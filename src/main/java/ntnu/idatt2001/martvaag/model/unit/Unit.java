@@ -4,6 +4,7 @@ import ntnu.idatt2001.martvaag.model.tools.enums.Terrain;
 
 /**
  * abstract class which represent a unit
+ *
  * @version 2022-05-22
  * @author martvaag
  */

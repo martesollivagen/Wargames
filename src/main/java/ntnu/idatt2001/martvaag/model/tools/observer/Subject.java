@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * class to give an observer notice when something changes in an observable object
+ *
  * @version 2022-05-22
  * @author martvaag
  */
