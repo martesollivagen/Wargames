@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controllers.MainPageController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controller.MainPageController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;">
          <children>
@@ -74,7 +74,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="confirmationTextCreateOwnArmy" fill="#e41212" layoutX="71.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="143.0" />
+                  <Text fx:id="confirmationTextCreateOwnArmy" fill="#8B0000" layoutX="71.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="143.0" />
                   <Label layoutX="4.0" layoutY="104.0" text="Select unit's health" />
                   <Label layoutX="3.0" layoutY="184.0" text="Add number of units" />
                   <TextField fx:id="unitHealthInputField" layoutX="121.0" layoutY="99.0" prefHeight="26.0" prefWidth="148.0" promptText="Unit's health" />
@@ -82,8 +82,8 @@
                   <Label layoutX="4.0" layoutY="144.0" text="Select unit's name" />
                </children>
             </AnchorPane>
-            <Text fx:id="confirmationTextResetArmies" fill="#e41212" layoutX="621.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0" />
-            <Text fx:id="confirmationTextSimulateBattle" fill="#e41212" layoutX="460.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="180.0" />
+            <Text fx:id="confirmationTextResetArmies" fill="#8B0000" layoutX="621.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0" />
+            <Text fx:id="confirmationTextSimulateBattle" fill="#8B0000" layoutX="460.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="180.0" />
             <Text fx:id="viewUnitsArmyOne" layoutX="99.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View all unit information by hovering over this field^" visible="false">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -141,7 +141,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Button fx:id="instructionsButton" layoutX="481.0" layoutY="25.0" mnemonicParsing="false" onAction="#question" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="644.0" AnchorPane.topAnchor="25.0">
+            <Button fx:id="instructionsButton" layoutX="481.0" layoutY="25.0" mnemonicParsing="false" onAction="#instructionAlert" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="644.0" AnchorPane.topAnchor="25.0">
                <font>
                   <Font size="16.0" />
                </font>
