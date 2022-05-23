@@ -27,7 +27,8 @@ import java.util.*;
  */
 public class MainPageController{
 
-    //string paths for the different army files
+    //string paths for instructions and the different army files
+    private final static String filePathInstructions = "src/main/resources/ntnu/idatt2001/martvaag/instructions/instructions.txt";
     private final static String filePathHumanArmy = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/human-army.csv";
     private final static String filePathOrcishHorde = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/orcish-horde-army.csv";
     private final static String filePathStarWarsArmy = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/Star-Wars-army.csv";
@@ -594,7 +595,7 @@ public class MainPageController{
      */
     public String instructions(){
         StringBuilder instructions = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/ntnu/idatt2001/martvaag/instructions.txt"))){
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePathInstructions))){
             reader.lines().forEach(line -> instructions.append("\n").append(line));
         } catch (IOException | NullPointerException e){
             e.printStackTrace();
