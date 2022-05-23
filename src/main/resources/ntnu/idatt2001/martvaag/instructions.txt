@@ -1,0 +1,28 @@
+1. In order to simulate a battle you need two armies. These you can create in three different ways:
+
+     a. Create your own army by using the input fields on the left. You can only create one own army,
+        and then use it against for example one of the pre-made armies. You have to choose a unit type,
+        the health value and number of units to add have to be number, and your unit name cannot be empty.
+        This you can repeat until you are happy with your army:)
+
+     b. Download an army by using the 'Download army from file' button on the right. The file has to
+        be a csv file with the right format in order to work. If you are having trouble, try to create
+        a new csv file wit the content from your file and try again
+
+     c. Choose from pre-made armies by using the 'Choose army' buttons on the right
+
+2. Once you have found two armies they will appear in the two white textfields at the top of the page, and
+   you are able to view all the units in the armies simply by hovering over the textfield of each army.
+   You can also now choose terrain and simulate a battle. You cannot simulate a battle between two equal
+   armies (if they have the same name).
+
+3. After the simulation, the winner will show in the middle, and you can again view all the units left in each
+   army after the battle by hovering over the text fields. After each battle you have to reset the armies, and
+   then you can either do another simulation with the same armies and terrain, or choose new ones.
+
+4. If something else should go wrong, try to read and understand the error messages provided. If you are
+   still having trouble, try to close the application with the 'Quit application' button and start over.
+
+
+
+   Enjoy!!
