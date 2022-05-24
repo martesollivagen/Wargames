@@ -1,9 +1,13 @@
 1. In order to simulate a battle you need two armies. These you can create in three different ways:
 
-     a. Create your own army by using the input fields on the left. You can only create one own army,
-        and then use it against for example one of the pre-made armies. You have to choose a unit type,
-        the health value and number of units to add have to be number, and your unit name cannot be empty.
-        This you can repeat until you are happy with your army:)
+     a. Create your own army by using the input fields on the left. You can only create one own army
+        with maximum 10 000 units, and then use it against for example one of the pre-made armies.
+
+        You can see information about the different unit types by clicking on the "Select unit type"
+        text next to the button where you choose the unit type.
+
+        You have to choose a unit type, the health value and number of units to add have to be number,
+        and your unit name cannot be empty. This you can repeat until you are happy with your army:)
 
      b. Download an army by using the 'Download army from file' button on the right. The file has to
         be a csv file with the right format in order to work. If you are having trouble, try to create
