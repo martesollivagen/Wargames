@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controller.FrontPageController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controller.FrontPageController">
    <children>
       <Button layoutX="400.0" layoutY="365.0" mnemonicParsing="false" onAction="#createAnArmy" prefHeight="80.0" prefWidth="231.0" style="-fx-background-color: green; -fx-border-color: black; -fx-text-fill: black;" text="Create an Army" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="380.0">
          <font>
@@ -14,7 +14,7 @@
          </font></Button>
       <ImageView fitHeight="106.0" fitWidth="586.0" layoutX="259.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../pictures/wargames.png" />
+            <Image url="@../pictures/wargamesText.png" />
          </image>
       </ImageView>
    </children>
