@@ -22,13 +22,15 @@ import java.util.*;
 
 /**
  * controller for the main page of the application
- * @version 2022-05-22
+ *
+ * @version 2022-05-23
  * @author martvaag
  */
 public class MainPageController{
 
     //string paths for instructions and the different army files
     private final static String filePathInstructions = "src/main/resources/ntnu/idatt2001/martvaag/instructions/instructions.txt";
+    private final static String filePathUnitTypeInfo = "src/main/resources/ntnu/idatt2001/martvaag/instructions/unitTypeInformation.txt";
     private final static String filePathHumanArmy = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/human-army.csv";
     private final static String filePathOrcishHorde = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/orcish-horde-army.csv";
     private final static String filePathStarWarsArmy = "src/main/resources/ntnu/idatt2001/martvaag/preCreatedArmy/Star-Wars-army.csv";
@@ -104,12 +106,10 @@ public class MainPageController{
     }
 
     /**
-     * resets the self created army
-     * ends the code
+     * ends the running code
      * close the application
      */
     public void closeApplication(){
-        resetSelfCreatedArmy();
         System.exit(0);
         Platform.exit();
     }
@@ -473,20 +473,24 @@ public class MainPageController{
             setViewUnitTextAndImage(viewUnitsArmyOne, imageArmyOne,neutralArmyOneImage);
             filePathArmyOne = filePathSelfCreatedArmy;
             armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
-            armyOne.addAll(unitsToAdd);
+            if (armyOne.getUnits().size() >= 10000){
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
+                confirmationTextCreateOwnArmy.setText("You cannot have over 10 000 units in your army");
+            } else {
+                armyOne.addAll(unitsToAdd);
 
-            File fileArmyOne = new File(filePathSelfCreatedArmy);
-            String units = "";
-            for (Unit unit : armyOne.getUnits()) {
-                units += unit.toString() + "\n";
-                armyOneUnits.setText(units);
+                StringBuilder finalUnits = new StringBuilder();
+                armyOne.getUnits().forEach(unit -> finalUnits.append("\n").append(unit.toString()));
+                armyOneUnits.setText(finalUnits.toString());
+
+                File fileArmyOne = new File(filePathSelfCreatedArmy);
                 FileHandler.writeToFile(fileArmyOne, armyOne);
-            }
 
-            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
-            confirmationTextCreateOwnArmy.setText("Your '" + nameOfUnit.getText().trim() + "' unit(s) where added to your army");
-            setArmyOneInfo();
-            clearFieldsCreateOwnArmy();
+                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
+                confirmationTextCreateOwnArmy.setText("Your '" + nameOfUnit.getText().trim() + "' unit(s) where added to your army");
+                setArmyOneInfo();
+                clearFieldsCreateOwnArmy();
+            }
         } catch (NumberFormatException e){
             confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
             confirmationTextCreateOwnArmy.setText("Health and number of units has to be numbers");
@@ -573,6 +577,7 @@ public class MainPageController{
 
     /**
      * alert window with simple instructions explaining how the application works
+     * reads the instructions from a txt file
      */
     public void instructionAlert() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -580,7 +585,7 @@ public class MainPageController{
         alert.getDialogPane().setPrefSize(600,700);
         alert.setTitle("Instructions");
         alert.setHeaderText("Instruction manual for Wargames");
-        alert.setContentText(instructions());
+        alert.setContentText(FileHandler.readTextFromFile(filePathInstructions));
 
         ButtonType okButton = new ButtonType("OK");
 
@@ -590,16 +595,21 @@ public class MainPageController{
     }
 
     /**
-     * reads instructions from instructions.txt file
-     * @return instructions
+     * alert window with information about each unit type for when the user is going to make their own army
+     * reads the information from a txt file
      */
-    public String instructions(){
-        StringBuilder instructions = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePathInstructions))){
-            reader.lines().forEach(line -> instructions.append("\n").append(line));
-        } catch (IOException | NullPointerException e){
-            e.printStackTrace();
-        }
-        return instructions.toString();
+    public void showUnitTypeInfo(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setResizable(true);
+        alert.getDialogPane().setPrefSize(400,600);
+        alert.setTitle("Unit types");
+        alert.setHeaderText("Information about the different unit types");
+        alert.setContentText(FileHandler.readTextFromFile(filePathUnitTypeInfo));
+
+        ButtonType okButton = new ButtonType("OK");
+
+        alert.getButtonTypes().setAll(okButton);
+        alert.showAndWait();
+        alert.close();
     }
 }
