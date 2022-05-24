@@ -22,8 +22,9 @@ import java.util.*;
 
 /**
  * controller for the main page of the application
+ * holds all methods used on the main page
  *
- * @version 2022-05-23
+ * @version 2022-05-24
  * @author martvaag
  */
 public class MainPageController{
@@ -98,7 +99,7 @@ public class MainPageController{
 
     /**
      * method containing things that happens when this page is opened
-     * adds values og unit types and terrain types to choice boxes
+     * adds values of unit types and terrain types to choice boxes
      */
     public void initialize(){
         unitType.getItems().addAll(unitTypes);
@@ -106,8 +107,7 @@ public class MainPageController{
     }
 
     /**
-     * ends the running code
-     * close the application
+     * ends the running code and close the application
      */
     public void closeApplication(){
         System.exit(0);
@@ -134,15 +134,14 @@ public class MainPageController{
                 filePathArmyOne = file.getPath();
 
                 armyOneUnits.setText(FileHandler.readArmyFromFile(file.getPath()).toString());
-                confirmationTextFileArmyOne.setFill(Paint.valueOf("#0000CD"));
-                confirmationTextFileArmyOne.setText("Selected file for Army 1: " + file.getName());
+                setMessage(confirmationTextFileArmyOne,"#0000CD","Selected file for Army 1: " + file.getName());
                 setArmyOneInfo();
                 setViewUnitTextAndImage(viewUnitsArmyOne, imageArmyOne, neutralArmyOneImage);
             }
         } catch (NullPointerException e){
-            noFileSelected(confirmationTextFileArmyOne);
+            setMessage(confirmationTextFileArmyOne,"#8B0000","No file was selected");
         } catch (IllegalArgumentException i){
-            invalidFileFormat(confirmationTextFileArmyOne);
+            setMessage(confirmationTextFileArmyOne,"#8B0000","This is an invalid file format, you have to use a csv file with the right format");
         }
     }
 
@@ -166,46 +165,49 @@ public class MainPageController{
                 filePathArmyTwo = file.getPath();
 
                 armyTwoUnits.setText(FileHandler.readArmyFromFile(file.getPath()).toString());
-                confirmationTextFileArmyTwo.setFill(Paint.valueOf("#0000CD"));
-                confirmationTextFileArmyTwo.setText("Selected file for Army 2: " + file.getName());
+                setMessage(confirmationTextFileArmyTwo,"#0000CD","Selected file for Army 2: " + file.getName());
                 setArmyTwoInfo();
                 setViewUnitTextAndImage(viewUnitsArmyTwo, imageArmyTwo, neutralArmyTwoImage);
             }
         } catch (NullPointerException e){
-            noFileSelected(confirmationTextFileArmyTwo);
+            setMessage(confirmationTextFileArmyTwo,"#8B0000","No file was selected");
         } catch (IllegalArgumentException i){
-            invalidFileFormat(confirmationTextFileArmyTwo);
+            setMessage(confirmationTextFileArmyTwo,"#8B0000","This is an invalid file format, you have to use a csv file with the right format");
         }
     }
 
     /**
-     * sets error message if no file is selected
-     * @param confirmationText confirmation text
+     * create own army
+     * uses the input fields and UnitFactory to create units
+     * writes this new army to the selfCreatedArmy file
      */
-    public void noFileSelected(Text confirmationText){
-        confirmationText.setFill(Paint.valueOf("#8B0000"));
-        confirmationText.setText("No file was selected");
-    }
+    public void createOwnArmyForArmyOne(){
+        try {
+            ArrayList<Unit> unitsToAdd = UnitFactory.createMultipleUnits(Integer.parseInt(numberOfUnitsToAdd.getText().trim()), unitType.getValue(), nameOfUnit.getText().trim(), Integer.parseInt(unitHealthInputField.getText().trim()));
+            setViewUnitTextAndImage(viewUnitsArmyOne, imageArmyOne,neutralArmyOneImage);
+            armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
+            if (armyOne.getUnits().size() >= 10000){
+                setMessage(confirmationTextCreateOwnArmy,"#8B0000","You cannot have over 10 000 units in your army");
+            } else {
+                armyOne.addAll(unitsToAdd);
 
-    /**
-     * sets error message for invalid file format
-     * @param confirmationText confirmation text
-     */
-    public void invalidFileFormat(Text confirmationText){
-        confirmationText.setFill(Paint.valueOf("#8B0000"));
-        confirmationText.setText("This is an invalid file format, you have to use a csv file with the right format");
-    }
+                StringBuilder allUnits = new StringBuilder();
+                armyOne.getUnits().forEach(unit -> allUnits.append("\n").append(unit.toString()));
+                armyOneUnits.setText(allUnits.toString());
 
-    /**
-     * sets text and image visible
-     *
-     * @param viewUnits message to view units
-     * @param imageView image view
-     * @param image     image
-     */
-    public void setViewUnitTextAndImage(Text viewUnits, ImageView imageView, Image image){
-        viewUnits.setVisible(true);
-        imageView.setImage(image);
+                File fileArmyOne = new File(filePathSelfCreatedArmy);
+                FileHandler.writeToFile(fileArmyOne, armyOne);
+
+                setMessage(confirmationTextCreateOwnArmy,"#0000CD","Your '" + nameOfUnit.getText().trim() + "' unit(s) were added to your army");
+                setArmyOneInfo();
+                clearFieldsCreateOwnArmy();
+                filePathArmyOne = filePathSelfCreatedArmy;
+            }
+        } catch (NumberFormatException e){
+            setMessage(confirmationTextCreateOwnArmy,"#8B0000","Health and number of units has to be numbers");
+        } catch (IllegalArgumentException n){
+            setMessage(confirmationTextCreateOwnArmy,"#8B0000",n.getMessage());
+        }
     }
 
     /**
@@ -229,14 +231,6 @@ public class MainPageController{
     }
 
     /**
-     * check if an army does not have any units left
-     * @return army info with no units
-     */
-    public String emptyArmy(){
-        return armyInfo(0,0,0,0,0,0);
-    }
-
-    /**
      * set army info for army one
      */
     public void setArmyOneInfo(){
@@ -253,7 +247,15 @@ public class MainPageController{
     }
 
     /**
-     * disable all fields during the animation
+     * check if an army does not have any units left
+     * @return army info with no units
+     */
+    public String emptyArmy(){
+        return armyInfo(0,0,0,0,0,0);
+    }
+
+    /**
+     * disable all fields
      */
     public void disableAllFields(){
         resetArmiesButton.setDisable(true);
@@ -266,7 +268,20 @@ public class MainPageController{
     }
 
     /**
-     * enables all fields after reset
+     * removes the two images for each army and displays winner image
+     * also un-disables the reset button and sets "view units" text visible
+     */
+    public void afterSimulationsEdits(){
+        winnerImage.setVisible(true);
+        imageArmyOne.setVisible(false);
+        imageArmyTwo.setVisible(false);
+        resetArmiesButton.setDisable(false);
+        viewUnitsArmyOne.setVisible(true);
+        viewUnitsArmyTwo.setVisible(true);
+    }
+
+    /**
+     * enables all fields
      */
     public void enableAllFields(){
         winnerImage.setVisible(false);
@@ -289,20 +304,18 @@ public class MainPageController{
     }
 
     /**
-     * removes the two images for each army and displays winner image
-     * also un-disables the reset button and sets "view units" text visable
+     * clear all fields and text used for creating own army
      */
-    public void afterBattleEdits(){
-        winnerImage.setVisible(true);
-        imageArmyOne.setVisible(false);
-        imageArmyTwo.setVisible(false);
-        resetArmiesButton.setDisable(false);
-        viewUnitsArmyOne.setVisible(true);
-        viewUnitsArmyTwo.setVisible(true);
+    public void clearFieldsCreateOwnArmy(){
+        unitType.getSelectionModel().clearSelection();
+        numberOfUnitsToAdd.setText("");
+        nameOfUnit.setText("");
+        unitHealthInputField.setText("");
+        confirmationTextFileArmyOne.setText("");
     }
 
     /**
-     * simulate method
+     * simulate a battle
      * first evaluates the armies and terrain
      * then creates an animation and later displays winner and the units left in the two armies
      */
@@ -321,7 +334,7 @@ public class MainPageController{
                 } else {
                     winnerImage.setImage(imageArmyTwo.getImage());
                 }
-                afterBattleEdits();
+                afterSimulationsEdits();
                 armyOneUnits.setText(animation.getBattle().armyOne().toString());
                 armyTwoUnits.setText(animation.getBattle().armyTwo().toString());
             };
@@ -337,7 +350,7 @@ public class MainPageController{
             };
             new Thread(task).start();
         } catch (NullPointerException | IllegalArgumentException n){
-            confirmationTextSimulateBattle.setText(n.getMessage());
+            setMessage(confirmationTextSimulateBattle,"#8B0000",n.getMessage());
         }
     }
 
@@ -347,7 +360,7 @@ public class MainPageController{
     public void resetArmies(){
         try {
             if (!(armyOneInfo.getText().contains(emptyArmy()) || armyTwoInfo.getText().contains(emptyArmy()))) {
-                confirmationTextResetArmies.setText("You have to do a simulation before you can reset");
+                setMessage(confirmationTextResetArmies,"#8B0000", "You have to do a simulation before you can reset");
             } else {
                 armyOne = FileHandler.readArmyFromFile(filePathArmyOne);
                 armyTwo = FileHandler.readArmyFromFile(filePathArmyTwo);
@@ -361,25 +374,8 @@ public class MainPageController{
                 enableAllFields();
             }
         } catch (NullPointerException n) {
-            confirmationTextResetArmies.setText("You have to set two armies and run a simulation first");
+            setMessage(confirmationTextResetArmies,"#8B0000", "You have to set two armies and run a simulation first");
         }
-    }
-
-    /**
-     * set image and army info for pre-made armies
-     *
-     * @param imageView        image view
-     * @param image            image
-     * @param armyInfo         army info
-     * @param filePath         pile path
-     * @param viewUnits        message to view units
-     * @param confirmationText confirmation text
-     */
-    public void setArmy(ImageView imageView, Image image, TextArea armyInfo, String filePath, Text viewUnits, Text confirmationText){
-        imageView.setImage(image);
-        armyInfo.setText(FileHandler.readArmyFromFile(filePath).toString());
-        viewUnits.setVisible(true);
-        confirmationText.setText("");
     }
 
     /**
@@ -463,54 +459,15 @@ public class MainPageController{
     }
 
     /**
-     * create own army
-     * uses the input fields and UnitFactory to create units
-     * writes this new army to the selfCreatedArmy file
-     */
-    public void createArmyForArmyOne(){
-        try {
-            ArrayList<Unit> unitsToAdd = UnitFactory.createMultipleUnits(Integer.parseInt(numberOfUnitsToAdd.getText().trim()), unitType.getValue(), nameOfUnit.getText().trim(), Integer.parseInt(unitHealthInputField.getText().trim()));
-            setViewUnitTextAndImage(viewUnitsArmyOne, imageArmyOne,neutralArmyOneImage);
-            filePathArmyOne = filePathSelfCreatedArmy;
-            armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
-            if (armyOne.getUnits().size() >= 10000){
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-                confirmationTextCreateOwnArmy.setText("You cannot have over 10 000 units in your army");
-            } else {
-                armyOne.addAll(unitsToAdd);
-
-                StringBuilder finalUnits = new StringBuilder();
-                armyOne.getUnits().forEach(unit -> finalUnits.append("\n").append(unit.toString()));
-                armyOneUnits.setText(finalUnits.toString());
-
-                File fileArmyOne = new File(filePathSelfCreatedArmy);
-                FileHandler.writeToFile(fileArmyOne, armyOne);
-
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
-                confirmationTextCreateOwnArmy.setText("Your '" + nameOfUnit.getText().trim() + "' unit(s) where added to your army");
-                setArmyOneInfo();
-                clearFieldsCreateOwnArmy();
-            }
-        } catch (NumberFormatException e){
-            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-            confirmationTextCreateOwnArmy.setText("Health and number of units has to be numbers");
-        } catch (IllegalArgumentException n){
-            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-            confirmationTextCreateOwnArmy.setText(n.getMessage());
-        }
-    }
-
-    /**
      * empty the unit list for the self-made army to start over
+     * check if army one is the self created army and if it is already empty
      */
     public void resetSelfCreatedArmy(){
         try {
             if (!armyOne.getName().equals("Your army")){
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-                confirmationTextCreateOwnArmy.setText("The army you are trying to empty is not yours");
+                setMessage(confirmationTextCreateOwnArmy,"#8B0000","The army you are trying to empty is not yours");
             } else if (!armyOne.hasUnits()){
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-                confirmationTextCreateOwnArmy.setText("Your army is already empty");
+                setMessage(confirmationTextCreateOwnArmy,"#8B0000","Your army is already empty");
             } else {
                 clearFieldsCreateOwnArmy();
 
@@ -523,24 +480,52 @@ public class MainPageController{
                 armyOne = FileHandler.readArmyFromFile(filePathSelfCreatedArmy);
                 setArmyOneInfo();
                 armyOneUnits.setText(FileHandler.readArmyFromFile(filePathSelfCreatedArmy).toString());
-                confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#0000CD"));
-                confirmationTextCreateOwnArmy.setText("Your army is now empty");
+                setMessage(confirmationTextCreateOwnArmy,"#0000CD","Your army is now empty");
             }
         } catch (NullPointerException n) {
-            confirmationTextCreateOwnArmy.setFill(Paint.valueOf("#8B0000"));
-            confirmationTextCreateOwnArmy.setText("You have not created an army yet");
+            setMessage(confirmationTextCreateOwnArmy,"#8B0000","You have not created an army yet");
         }
     }
 
     /**
-     * clear all fields and text used for creating own army
+     * method of setting a message to a text component
+     *
+     * @param textLabel text component
+     * @param textColor text color
+     * @param message message
      */
-    public void clearFieldsCreateOwnArmy(){
-        unitType.getSelectionModel().clearSelection();
-        numberOfUnitsToAdd.setText("");
-        nameOfUnit.setText("");
-        unitHealthInputField.setText("");
-        confirmationTextFileArmyOne.setText("");
+    public void setMessage(Text textLabel, String textColor, String message){
+        textLabel.setFill(Paint.valueOf(textColor));
+        textLabel.setText(message);
+    }
+
+    /**
+     * sets text and image visible
+     *
+     * @param viewUnits message to view units
+     * @param imageView image view
+     * @param image     image
+     */
+    public void setViewUnitTextAndImage(Text viewUnits, ImageView imageView, Image image){
+        viewUnits.setVisible(true);
+        imageView.setImage(image);
+    }
+
+    /**
+     * set image and army info for pre-made armies
+     *
+     * @param imageView        image view
+     * @param image            image
+     * @param armyInfo         army info
+     * @param filePath         pile path
+     * @param viewUnits        message to view units
+     * @param confirmationText confirmation text
+     */
+    public void setArmy(ImageView imageView, Image image, TextArea armyInfo, String filePath, Text viewUnits, Text confirmationText){
+        imageView.setImage(image);
+        armyInfo.setText(FileHandler.readArmyFromFile(filePath).toString());
+        viewUnits.setVisible(true);
+        confirmationText.setText("");
     }
 
     /**
