@@ -1,0 +1,23 @@
+Infantry unit                A unit which specialises in melee.
+                                        They have an extra attack and
+                                        defence advantage in the terrain forest
+
+Ranged unit                A unit which specialises in range.
+                                        They have an extra attack advantage
+                                        in the terrain hill, but also a slight
+                                        disadvantage when attacking in the forest.
+                                        The terrain does not affect its resist
+
+Cavalry unit                A unit which specialises in melee, and
+                                        is extra strong in their first attack (charge).
+                                        They have an extra attack advantage in the
+                                        terrain plains, but also a slight resist
+                                        disadvantage in the terrain forest
+
+Commander unit     A unit that is a stronger version
+                                       of the cavalry unit
+
+Support unit             A unit with the purpose of healing other units.
+                                      They heal two other units in their own army
+                                       when they die in battle. The support unit
+                                       itself has low attack and resist
