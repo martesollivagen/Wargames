@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  * class for fileHandling
- * includes methods for writing and reading an army from a file
+ * includes methods for writing and reading an army from a file and reading a text from a file
  *
  * @version 2022-05-23
  * @author martvaag
@@ -58,5 +58,19 @@ public class FileHandler {
             e.printStackTrace();
         }
         return army;
+    }
+
+    /**
+     * reads text from a file
+     * @return text
+     */
+    public static String readTextFromFile(String filepath){
+        StringBuilder text = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
+            reader.lines().forEach(line -> text.append("\n").append(line));
+        } catch (IOException | NullPointerException e){
+            e.printStackTrace();
+        }
+        return text.toString();
     }
 }
