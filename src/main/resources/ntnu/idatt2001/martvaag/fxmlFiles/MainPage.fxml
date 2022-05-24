@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controller.MainPageController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ntnu.idatt2001.martvaag.controller.MainPageController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: darkseagreen;">
          <children>
@@ -36,11 +36,11 @@
                <font>
                   <Font size="19.0" />
                </font></TextArea>
-            <TextArea fx:id="armyOneInfo" editable="false" layoutX="34.0" layoutY="44.0" onMouseEntered="#showUnitsArmyOne" onMouseExited="#removeUnitsArmyOne" prefHeight="182.0" prefWidth="346.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="40.0">
+            <TextArea fx:id="armyOneInfo" editable="false" layoutX="34.0" layoutY="44.0" onMouseEntered="#showUnitsArmyOne" onMouseExited="#removeUnitsArmyOne" prefHeight="182.0" prefWidth="346.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font size="19.0" />
                </font></TextArea>
-            <TextArea fx:id="armyTwoInfo" editable="false" layoutX="698.0" layoutY="46.0" onMouseEntered="#showUnitsArmyTwo" onMouseExited="#removeUnitsArmyTwo" prefHeight="162.0" prefWidth="272.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+            <TextArea fx:id="armyTwoInfo" editable="false" layoutX="698.0" layoutY="46.0" onMouseEntered="#showUnitsArmyTwo" onMouseExited="#removeUnitsArmyTwo" prefHeight="162.0" prefWidth="272.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font size="19.0" />
                </font></TextArea>
@@ -75,7 +75,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor></ChoiceBox>
                   <TextField fx:id="nameOfUnit" layoutX="121.0" layoutY="139.0" prefHeight="26.0" prefWidth="148.0" promptText="Name of unit" style="-fx-border-color: black;" />
-                  <Button layoutX="59.0" layoutY="231.0" mnemonicParsing="false" onAction="#createArmyForArmyOne" style="-fx-border-color: black; -fx-text-fill: black;" text="Add unit(s) to your army">
+                  <Button layoutX="59.0" layoutY="231.0" mnemonicParsing="false" onAction="#createOwnArmyForArmyOne" style="-fx-border-color: black; -fx-text-fill: black;" text="Add unit(s) to your army">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -175,7 +175,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Button fx:id="instructionsButton" layoutX="489.0" layoutY="31.0" mnemonicParsing="false" onAction="#instructionAlert" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="638.0" AnchorPane.topAnchor="31.0">
+            <Button fx:id="instructionsButton" layoutX="492.0" layoutY="31.0" mnemonicParsing="false" onAction="#instructionAlert" prefHeight="31.0" prefWidth="23.0" style="-fx-background-radius: 30; -fx-background-color: dodgerblue;" AnchorPane.bottomAnchor="638.0" AnchorPane.topAnchor="31.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -195,7 +195,7 @@
             </Button>
             <TextArea fx:id="armyOneUnits" editable="false" layoutX="254.0" layoutY="194.0" onMouseEntered="#showUnitsArmyOne" onMouseExited="#removeUnitsArmyOne" prefHeight="97.0" prefWidth="273.0" visible="false" AnchorPane.leftAnchor="254.0" />
             <TextArea fx:id="armyTwoUnits" editable="false" layoutX="582.0" layoutY="194.0" onMouseEntered="#showUnitsArmyTwo" onMouseExited="#removeUnitsArmyTwo" prefHeight="96.0" prefWidth="273.0" visible="false" AnchorPane.leftAnchor="582.0" />
-            <Text layoutX="537.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions" />
+            <Text layoutX="537.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions" />
             <Text layoutX="202.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army 1" />
             <Text layoutX="851.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army 2" />
          </children>
